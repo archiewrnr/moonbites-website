@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — MoonBites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- MINIMAL CHECKOUT HEADER -->
+  <header class="checkout-header">
+    <a href="index.html" class="checkout-header__logo"><img src="logo-lockup.png?v=6" alt="MoonBites" /></a>
+    <span class="checkout-header__secure">🔒 Secure Checkout</span>
+  </header>
+
+  <main class="checkout">
+    <div class="checkout__inner">
+
+      <!-- FORM -->
+      <div class="checkout__form">
+
+        <div id="checkoutStep">
+          <section class="checkout__section">
+            <h2>1. Contact</h2>
+            <div class="checkout__row">
+              <input type="email" placeholder="Email address" required />
+            </div>
+          </section>
+
+          <section class="checkout__section">
+            <h2>2. Shipping Address</h2>
+            <div class="checkout__row checkout__row--split">
+              <input type="text" placeholder="First name" required />
+              <input type="text" placeholder="Last name" required />
+            </div>
+            <div class="checkout__row">
+              <input type="text" placeholder="Address" required />
+            </div>
+            <div class="checkout__row checkout__row--split">
+              <input type="text" placeholder="City" required />
+              <input type="text" placeholder="Postcode" required />
+            </div>
+            <div class="checkout__row">
+              <select required>
+                <option value="UK">United Kingdom</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="checkout__section">
+            <h2>3. Payment</h2>
+            <div class="checkout__pay-select">
+              <span class="pay-badge pay-badge--applepay">Apple Pay</span>
+              <span class="pay-badge pay-badge--googlepay">Google Pay</span>
+              <span class="pay-badge pay-badge--paypal">PayPal</span>
+              <span class="pay-badge pay-badge--klarna">Klarna</span>
+            </div>
+            <div class="checkout__row checkout__row--divider"><span>or pay by card</span></div>
+            <div class="checkout__row">
+              <input type="text" placeholder="Card number" inputmode="numeric" required />
+            </div>
+            <div class="checkout__row checkout__row--split">
+              <input type="text" placeholder="MM / YY" required />
+              <input type="text" placeholder="CVC" inputmode="numeric" required />
+            </div>
+          </section>
+
+          <button type="button" class="btn btn--primary btn--xl" id="placeOrderBtn">Place Order — <span id="orderTotalBtn">£17.99</span></button>
+          <p class="checkout__assure">🛡️ 30-Day Money Back Guarantee &nbsp; · &nbsp; 🔒 Encrypted &amp; Secure &nbsp; · &nbsp; ↩️ Cancel Anytime</p>
+          <p class="checkout__demo-note">This is a front-end demo checkout — no real payment will be taken.</p>
+        </div>
+
+        <!-- CONFIRMATION (hidden until order placed) -->
+        <div id="checkoutConfirm" class="checkout__confirm">
+          <div class="checkout__confirm-icon">🌙</div>
+          <h2>You're In. Sweet Dreams.</h2>
+          <p>Your MoonBites Membership order has been placed. A confirmation has been sent to your email, and your first box will ship within 1–2 business days.</p>
+          <a href="index.html" class="btn btn--primary btn--lg">Back to MoonBites</a>
+        </div>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <aside class="checkout__summary">
+        <h3>Order Summary</h3>
+        <div class="checkout__item">
+          <img src="1.jpg" alt="MoonBites Sleep Gummies" />
+          <div class="checkout__item-info">
+            <strong>MoonBites Sleep Gummies</strong>
+            <span id="checkoutPlanLabel">Buy 2, Get 1 FREE — 3 Tubs</span>
+            <span class="checkout__item-rate" id="checkoutPlanRate"></span>
+          </div>
+          <span class="checkout__item-price" id="checkoutItemPrice">£53.97</span>
+        </div>
+
+        <div class="checkout__gifts">
+          <span class="checkout__gifts-label">Included FREE with your membership</span>
+          <ul>
+            <li>✓ Silk Sleep Mask</li>
+            <li>✓ MoonMist Pillow Spray</li>
+            <li>✓ Sleep &amp; Unwind App</li>
+            <li>✓ Exclusive Sleep Playlist</li>
+          </ul>
+        </div>
+
+        <div class="checkout__totals">
+          <div class="checkout__totals-row"><span>Subtotal</span><span id="checkoutSubtotal">£53.97</span></div>
+          <div class="checkout__totals-row"><span>Shipping</span><span class="checkout__free">FREE</span></div>
+          <div class="checkout__totals-row checkout__totals-row--saving"><span>Membership Saving</span><span id="checkoutSaving">−£36.00</span></div>
+          <div class="checkout__totals-row checkout__totals-row--total"><span>Total</span><span id="checkoutTotal">£53.97</span></div>
+        </div>
+
+        <p class="checkout__promo">🌙 3,200+ members already sleeping better</p>
+      </aside>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>

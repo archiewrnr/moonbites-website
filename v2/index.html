@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoonBites — Melatonin-Free Sleep Gummies</title>
+  <meta name="description" content="MoonBites are melatonin-free sleep gummies with Magnesium, KSM-66® Ashwagandha, L-Theanine, Lemon Balm, Passionflower and Valerian Root — fall asleep faster, sleep deeper, wake up restored." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar" id="announceBar">
+    <div class="announce-bar__inner">
+      <span class="announce-bar__text">🌙 Subscribe &amp; Save 20% — cancel anytime</span>
+      <div class="countdown">
+        <span id="cdH">23</span>:<span id="cdM">59</span>:<span id="cdS">47</span>
+      </div>
+      <a href="#products" class="announce-bar__cta">Shop Now →</a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo"><span class="nav__logo-text">MoonBites</span></a>
+      <ul class="nav__links">
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#compare">Why MoonBites</a></li>
+        <li><a href="#ingredients">What's Inside</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="#products" class="btn btn--primary" style="padding:9px 22px;font-size:0.85rem;">Shop Now</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="#benefits">Benefits</a>
+      <a href="#compare">Why MoonBites</a>
+      <a href="#ingredients">What's Inside</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="starsCanvas"></canvas>
+    <div class="hero__content">
+      <span class="hero__badge">✦ Melatonin-Free · UK-Formulated</span>
+      <h1 class="hero__headline">Drift Into<br /><em>Deeper Sleep</em></h1>
+      <p class="hero__sub">MoonBites are melatonin-free sleep gummies crafted with Magnesium, KSM-66® Ashwagandha and L-Theanine to help you fall asleep faster, stay asleep longer, and wake up genuinely refreshed — no grogginess, no dependency.</p>
+      <div class="hero__cta">
+        <a href="#products" class="btn btn--gold btn--lg">Start Your Sleep Ritual</a>
+        <a href="#compare" class="btn btn--ghost btn--lg">Why Melatonin-Free?</a>
+      </div>
+      <div class="hero__trust">
+        <div class="trust-pill">✓ 0mg Melatonin, Ever</div>
+        <div class="trust-pill">✓ UK-Formulated</div>
+        <div class="trust-pill">✓ Vegan · Sugar Free</div>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <img src="hero-final.jpg" alt="MoonBites Sleep Gummies — Strawberry Chamomile, melatonin-free" class="hero__product-img" />
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker__track">
+      <span>✦ Melatonin-Free by Design</span>
+      <span>✦ Magnesium · Ashwagandha · L-Theanine</span>
+      <span>✦ UK-Formulated</span>
+      <span>✦ Vegan &amp; Sugar Free</span>
+      <span>✦ Gluten Free</span>
+      <span>✦ No Morning Grogginess</span>
+      <span>✦ Melatonin-Free by Design</span>
+      <span>✦ Magnesium · Ashwagandha · L-Theanine</span>
+      <span>✦ UK-Formulated</span>
+      <span>✦ Vegan &amp; Sugar Free</span>
+      <span>✦ Gluten Free</span>
+      <span>✦ No Morning Grogginess</span>
+    </div>
+  </div>
+
+  <!-- BENEFIT PILLARS -->
+  <section class="benefits section section--blush" id="benefits">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Why MoonBites</span>
+        <h2>Wake Up Feeling <em>Human Again</em></h2>
+        <p>Four benefit pillars, right on the label — no melatonin required.</p>
+      </div>
+      <div class="benefits__grid">
+        <div class="benefit-card reveal"><div class="benefit-card__icon">💤</div><h3>Fall Asleep Faster</h3><p>Magnesium and Ashwagandha calm the nervous system so your body can wind down naturally.</p></div>
+        <div class="benefit-card reveal"><div class="benefit-card__icon">🧠</div><h3>Calm Racing Mind</h3><p>L-Theanine and Passionflower quiet anxious thoughts so your mind can switch off.</p></div>
+        <div class="benefit-card reveal"><div class="benefit-card__icon">🌊</div><h3>Deeper Sleep Cycles</h3><p>Valerian Root and Lemon Balm support the kind of sleep that actually restores you.</p></div>
+        <div class="benefit-card reveal"><div class="benefit-card__icon">☀️</div><h3>Wake Restored</h3><p>Zero melatonin means nothing lingering in your system by morning — just rest.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="section section--night" id="compare">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">The Difference</span>
+        <h2>MoonBites <em>vs. The Others</em></h2>
+        <p>Most sleep gummies lean on high-dose melatonin. We didn't.</p>
+      </div>
+      <div class="compare__grid">
+        <div class="compare__col compare__col--us reveal">
+          <h3>MoonBites</h3>
+          <ul class="compare__list">
+            <li><span class="compare__mark">✓</span> UK-Based Brand</li>
+            <li><span class="compare__mark">✓</span> Expertly Formulated Sleep Blend</li>
+            <li><span class="compare__mark">✓</span> Gentle, Natural Ingredients</li>
+            <li><span class="compare__mark">✓</span> Promotes Deep &amp; Restful Sleep</li>
+            <li><span class="compare__mark">✓</span> Wake Up Refreshed, No Groggy Feeling</li>
+          </ul>
+        </div>
+        <div class="compare__col compare__col--them reveal">
+          <h3>Others</h3>
+          <ul class="compare__list">
+            <li><span class="compare__mark">✕</span> Often Manufactured Overseas</li>
+            <li><span class="compare__mark">✕</span> Generic Melatonin-Heavy Formulas</li>
+            <li><span class="compare__mark">✕</span> Artificial Flavors or Colors</li>
+            <li><span class="compare__mark">✕</span> May Cause Grogginess</li>
+            <li><span class="compare__mark">✕</span> Incomplete or Unbalanced Sleep Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE / SUPPLEMENT FACTS -->
+  <section class="section section--dawn" id="ingredients">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What's Inside</span>
+        <h2>Ingredients You Can <em>Verify</em></h2>
+        <p>Full supplement facts, not just a highlight reel.</p>
+      </div>
+      <div class="facts">
+        <div class="facts__visual reveal">
+          <img src="../2.jpg" alt="MoonBites Botanical Night Blend" />
+        </div>
+        <div class="facts__panel reveal">
+          <h3>Supplement Facts</h3>
+          <span class="facts__meta">Serving Size: 2 Gummies · Servings Per Bottle: 30</span>
+          <table class="facts__table">
+            <tr><td>Magnesium Bisglycinate Chelate<span class="facts__note">150mg elemental magnesium</span></td><td>150mg</td></tr>
+            <tr><td>L-Theanine</td><td>200mg</td></tr>
+            <tr><td>Glycine</td><td>500mg</td></tr>
+            <tr><td>KSM-66® Ashwagandha Root Extract<span class="facts__note">Withania somnifera, std. 5% withanolides</span></td><td>150mg</td></tr>
+            <tr><td>Lemon Balm Extract<span class="facts__note">Melissa officinalis</span></td><td>150mg</td></tr>
+            <tr><td>Passionflower Extract<span class="facts__note">Passiflora incarnata</span></td><td>150mg</td></tr>
+            <tr><td>Chamomile Extract<span class="facts__note">Matricaria chamomilla</span></td><td>120mg</td></tr>
+            <tr><td>Valerian Root Extract<span class="facts__note">Valeriana officinalis</span></td><td>100mg</td></tr>
+            <tr><td>Vitamin B6<span class="facts__note">Pyridoxine HCl · 100% NRV</span></td><td>1.4mg</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="section section--night">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How To Use</span>
+        <h2>Simple, Fast, <em>Designed For Rest</em></h2>
+      </div>
+      <div class="how__steps">
+        <div class="how-step reveal">
+          <div class="how-step__num">1</div>
+          <h4>Before</h4>
+          <p>Feeling restless, sluggish, or your mind won't switch off.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-step__num">2</div>
+          <h4>Take 2 Gummies</h4>
+          <p>30–60 minutes before sleep. Chew thoroughly.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-step__num">3</div>
+          <h4>After</h4>
+          <p>Enjoy a restful night and wake up genuinely refreshed.</p>
+        </div>
+      </div>
+      <p class="how__directions">Take 2 gummies 30–60 minutes before sleep. Chew thoroughly and enjoy a restful night.</p>
+    </div>
+  </section>
+
+  <!-- SLEEP JOURNEY TIMELINE -->
+  <section class="section section--blush">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Your Sleep Journey</span>
+        <h2>Real Results, <em>Night by Night</em></h2>
+      </div>
+      <div class="timeline__track">
+        <div class="tl-step reveal"><div class="tl-step__node">🌙</div><div class="tl-step__body"><h4>Night 1</h4><p>You feel noticeably calmer at bedtime and drift off more naturally.</p></div></div>
+        <div class="tl-step reveal"><div class="tl-step__node">🌛</div><div class="tl-step__body"><h4>Week 1</h4><p>Falling asleep takes less time. Fewer middle-of-the-night wake-ups.</p></div></div>
+        <div class="tl-step reveal"><div class="tl-step__node">⭐</div><div class="tl-step__body"><h4>Week 2</h4><p>Sleep feels deeper and more restorative.</p></div></div>
+        <div class="tl-step reveal"><div class="tl-step__node">☀️</div><div class="tl-step__body"><h4>Month 1</h4><p>Your sleep schedule is consistent — sharper focus, better mood.</p></div></div>
+        <div class="tl-step reveal"><div class="tl-step__node">✨</div><div class="tl-step__body"><h4>Month 3+</h4><p>Sustained deep sleep, without ever relying on melatonin.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section--night" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Customer Love</span>
+        <h2>Real People, <em>Real Results</em></h2>
+        <div class="reviews__overall"><span>⭐⭐⭐⭐⭐</span><strong>Verified Amazon Reviews</strong></div>
+      </div>
+      <div class="reviews__grid">
+        <div class="review-card review-card--verified reveal">
+          <div class="review-card__top"><span>⭐⭐⭐⭐⭐</span><span class="review-card__verified">✓ Verified Purchase</span></div>
+          <p>"Really happy with these — no groggy feeling in the morning like other sleep gummies I've tried. Nice strawberry chamomile taste too."</p>
+          <div class="review-card__author"><div class="review-avatar">M</div><div><strong>Megan</strong><span>Verified Amazon Review</span></div></div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-card__top"><span>⭐⭐⭐⭐⭐</span><span class="review-card__verified">✓ Verified Purchase</span></div>
+          <p>"Finally a sleep gummy without melatonin knocking me out and leaving me groggy. Genuinely fall asleep easier and wake up clear-headed."</p>
+          <div class="review-card__author"><div class="review-avatar">S</div><div><strong>Sarah M.</strong><span>Verified Purchase</span></div></div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-card__top"><span>⭐⭐⭐⭐⭐</span><span class="review-card__verified">✓ Verified Purchase</span></div>
+          <p>"I was skeptical about a melatonin-free option but the Ashwagandha and L-Theanine combo genuinely calms me down before bed."</p>
+          <div class="review-card__author"><div class="review-avatar">D</div><div><strong>Daniel W.</strong><span>Verified Purchase</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="section section--dawn" id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Product</span>
+        <h2>The Original <em>MoonBites</em></h2>
+        <p>One expertly formulated, melatonin-free blend. 60 gummies · 30 servings.</p>
+      </div>
+      <div class="products__grid" style="display:flex;justify-content:center;">
+        <div class="product-card reveal" style="max-width:440px;width:100%;background:#fff;border:1px solid var(--border-dark);border-radius:var(--radius-lg);overflow:hidden;">
+          <div style="padding:22px;">
+            <h3 style="font-size:1.2rem;margin-bottom:5px;">MoonBites Sleep Gummies</h3>
+            <p style="font-size:0.85rem;color:var(--ink-soft);margin-bottom:16px;">Strawberry Chamomile · Botanical Night Blend · Melatonin-Free</p>
+            <div class="pricing-toggle" style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+              <label class="pricing-opt pricing-opt--active" data-price="24.99" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(74,61,156,0.06);border:1.5px solid rgba(74,61,156,0.3);border-radius:10px;cursor:pointer;">
+                <input type="radio" name="price-main" checked style="display:none;" />
+                <span style="flex:1;font-size:0.85rem;color:var(--ink-soft);">One-time</span>
+                <span style="font-weight:700;">£24.99</span>
+              </label>
+              <label class="pricing-opt" data-price="19.99" style="display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--border-dark);border-radius:10px;cursor:pointer;">
+                <input type="radio" name="price-main" style="display:none;" />
+                <span style="flex:1;font-size:0.85rem;color:var(--ink-soft);">Subscribe &amp; Save 20%</span>
+                <span style="font-weight:700;">£19.99/mo</span>
+              </label>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span class="product-card__price" style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;">£24.99</span>
+              <a href="#" class="btn btn--primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--blush" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2>Questions? <em>We Have Answers</em></h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <button class="faq__q">Will I feel groggy in the morning? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>MoonBites are melatonin-free, so there's no melatonin "sleep hangover" to sleep off. Magnesium and Ashwagandha calm your nervous system rather than sedating you.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Are MoonBites habit-forming? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>No. MoonBites contain zero melatonin, so there's no risk of your body's own melatonin production adjusting to nightly supplementation. Magnesium, Ashwagandha, and L-Theanine aren't associated with dependency.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">How long until I see results? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>Most customers notice a difference from night one. For full benefits like deeper sleep and consistent schedules, give it 2–4 weeks of nightly use.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Are they vegan and allergen-free? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>Yes — MoonBites are vegan, sugar-free, and gluten-free.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">What are the benefits of subscribing? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>Subscribe &amp; Save gives you 20% off every order, with the ability to pause, skip, or cancel anytime.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section section--night">
+    <div class="container">
+      <div class="newsletter__inner">
+        <div class="newsletter__text">
+          <span class="section-tag">Join the Ritual</span>
+          <h2>Get Sleep Tips &amp; <em>Exclusive Deals</em></h2>
+          <p>Weekly sleep science and subscriber-only discounts. No spam, ever.</p>
+        </div>
+        <div class="newsletter__form-wrap">
+          <form class="newsletter__form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn--gold">Subscribe</button>
+          </form>
+          <p class="newsletter__note" id="newsletterNote">🔒 No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="section section--dawn">
+    <div class="container">
+      <div class="guarantee__inner reveal">
+        <div class="guarantee__badge">🌙</div>
+        <div class="guarantee__text">
+          <h2>30-Night Sleep Guarantee</h2>
+          <p>Not sleeping better after 30 nights? Contact us for a full refund. No forms, no hassle.</p>
+          <a href="#products" class="btn btn--primary btn--lg">Try Risk-Free Tonight</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo"><span class="footer__logo-text">MoonBites</span></span>
+          <p>A melatonin-free sleep gummy from Earth &amp; Essence.</p>
+          <div class="footer__social">
+            <a href="#">Instagram · @earthessence.uk</a>
+            <a href="#">TikTok · @earthessence.uk</a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col"><h5>Shop</h5><a href="#products">Sleep Gummies</a><a href="#products">Subscribe &amp; Save</a></div>
+          <div class="footer__col"><h5>Company</h5><a href="#">Our Story</a><a href="#">Sleep Science</a></div>
+          <div class="footer__col"><h5>Support</h5><a href="#faq">FAQ</a><a href="#">Shipping</a><a href="#">Returns</a></div>
+        </div>
+      </div>
+      <p class="footer__legalinfo">These statements have not been evaluated by the MHRA. This product is not intended to diagnose, treat, cure or prevent any disease. Food supplements should not be used as a substitute for a varied and balanced diet.</p>
+      <div class="footer__bottom">
+        <p>© 2026 MoonBites — Earth &amp; Essence, a brand of JHX Enterprises Ltd, 18 Denmark Lane, Poole, England, BH15 2DG.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

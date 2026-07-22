@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The MoonBites Journal — Sleep Science, Explained Simply</title>
+  <meta name="description" content="Free, research-backed articles on sleep science, habits and ingredients — circadian rhythms, napping, caffeine cutoffs, alcohol and more. No paywall, updated regularly." />
+  <meta property="og:title" content="The MoonBites Journal — Sleep Science, Explained Simply" />
+  <meta property="og:description" content="Free, research-backed articles on sleep science, habits and ingredients. No paywall, updated regularly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="hero-bedside.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "The MoonBites Journal",
+    "description": "Free, research-backed articles on sleep science, habits and ingredients.",
+    "blogPost": [
+      { "@type": "BlogPosting", "headline": "What Alcohol Actually Does to Your Sleep Architecture", "datePublished": "2026-07-22" },
+      { "@type": "BlogPosting", "headline": "Caffeine and Sleep: Finding Your Real Cutoff Time", "datePublished": "2026-07-21" },
+      { "@type": "BlogPosting", "headline": "The Science of Napping: How to Nap Without Wrecking Your Night", "datePublished": "2026-07-20" },
+      { "@type": "BlogPosting", "headline": "What Blue Light Actually Does to Your Sleep", "datePublished": "2026-07-19" },
+      { "@type": "BlogPosting", "headline": "The Sleep-Exercise Connection: Why Timing Matters", "datePublished": "2026-07-18" },
+      { "@type": "BlogPosting", "headline": "Circadian Rhythm 101: How Your Internal Clock Actually Works", "datePublished": "2026-07-17" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="logo-lockup.png?v=6" alt="MoonBites" class="nav__logo-icon" /></a>
+      <ul class="nav__links">
+        <li><a href="index.html#membership">Membership</a></li>
+        <li><a href="index.html#showcase">What's Included</a></li>
+        <li><a href="product.html">Shop</a></li>
+        <li><a href="blog.html" class="nav__links--active">Journal</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="product.html" class="btn btn--nav">Get MoonBites</a>
+        <button class="nav__cart" aria-label="Cart">🛒</button>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html#membership">Membership</a>
+      <a href="index.html#showcase">What's Included</a>
+      <a href="product.html">Shop</a>
+      <a href="blog.html">Journal</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="product.html" class="btn btn--primary">Get MoonBites</a>
+    </div>
+  </nav>
+
+  <!-- BLOG HERO -->
+  <header class="blog-hero" id="top">
+    <div class="container">
+      <span class="section-tag">The MoonBites Journal</span>
+      <h1>Sleep Science, <em>Explained Simply</em></h1>
+      <p>Free, research-backed breakdowns of how sleep actually works — no pitch, no paywall, no email required. Just the studies, explained in plain English. New articles added regularly.</p>
+      <div class="blog-hero__stats">
+        <span>12 articles</span><span class="dot">·</span><span>Updated regularly</span><span class="dot">·</span><span>Real sources, every time</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog section">
+    <div class="container">
+
+      <!-- DAILY MICRO-CHALLENGE -->
+      <div class="blog-challenge reveal">
+        <span class="blog-challenge__label">🌙 Tonight's Micro-Challenge</span>
+        <p id="challengeText">Loading today's challenge…</p>
+        <span class="blog-challenge__hint">A new one every day — no app, no tracking, just try it tonight.</span>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="blog-filters" role="tablist" aria-label="Filter articles by category">
+        <button class="blog-filter is-active" data-filter="all" type="button">All Articles</button>
+        <button class="blog-filter" data-filter="Sleep Science" type="button">Sleep Science</button>
+        <button class="blog-filter" data-filter="Sleep Habits" type="button">Sleep Habits</button>
+        <button class="blog-filter" data-filter="Ingredients" type="button">Ingredients</button>
+        <button class="blog-filter" data-filter="Why MoonBites" type="button">Why MoonBites</button>
+      </div>
+
+      <!-- ARTICLE CARD GRID -->
+      <div class="blog-grid" id="blogGrid">
+
+        <a href="blog/alcohol-and-sleep.html" class="blog-card" data-category="Sleep Science">
+          <span class="blog-card__icon">🍷</span>
+          <span class="blog-card__tag">Sleep Science</span>
+          <h3>What Alcohol Actually Does to Your Sleep Architecture</h3>
+          <p>A nightcap can help you drift off faster — here's what the research says it does to your REM sleep a few hours later.</p>
+          <div class="blog-card__meta"><span>Jul 22, 2026</span><span>·</span><span>4 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/caffeine-timing.html" class="blog-card" data-category="Sleep Habits">
+          <span class="blog-card__icon">☕</span>
+          <span class="blog-card__tag">Sleep Habits</span>
+          <h3>Caffeine and Sleep: Finding Your Real Cutoff Time</h3>
+          <p>Half-life, individual variability, and why "no coffee after 2pm" is a decent default but not a universal rule.</p>
+          <div class="blog-card__meta"><span>Jul 21, 2026</span><span>·</span><span>3 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/napping.html" class="blog-card" data-category="Sleep Habits">
+          <span class="blog-card__icon">😴</span>
+          <span class="blog-card__tag">Sleep Habits</span>
+          <h3>The Science of Napping: How to Nap Without Wrecking Your Night</h3>
+          <p>Why a 20-minute nap can sharpen you up and a 45-minute one can leave you groggier than before.</p>
+          <div class="blog-card__meta"><span>Jul 20, 2026</span><span>·</span><span>3 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/blue-light.html" class="blog-card" data-category="Sleep Habits">
+          <span class="blog-card__icon">📱</span>
+          <span class="blog-card__tag">Sleep Habits</span>
+          <h3>What Blue Light Actually Does to Your Sleep</h3>
+          <p>The real mechanism behind the "no screens before bed" advice — and where the evidence is more nuanced than the headlines suggest.</p>
+          <div class="blog-card__meta"><span>Jul 19, 2026</span><span>·</span><span>3 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/exercise-and-sleep.html" class="blog-card" data-category="Sleep Habits">
+          <span class="blog-card__icon">🏃</span>
+          <span class="blog-card__tag">Sleep Habits</span>
+          <h3>The Sleep-Exercise Connection: Why Timing Matters</h3>
+          <p>Exercise reliably improves sleep quality — except when it doesn't. Here's what the timing research actually shows.</p>
+          <div class="blog-card__meta"><span>Jul 18, 2026</span><span>·</span><span>3 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/circadian-rhythm.html" class="blog-card" data-category="Sleep Science">
+          <span class="blog-card__icon">🧠</span>
+          <span class="blog-card__tag">Sleep Science</span>
+          <h3>Circadian Rhythm 101: How Your Internal Clock Actually Works</h3>
+          <p>Meet the suprachiasmatic nucleus — the brain structure quietly running your entire 24-hour cycle.</p>
+          <div class="blog-card__meta"><span>Jul 17, 2026</span><span>·</span><span>3 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/wind-down.html" class="blog-card" data-category="Sleep Habits">
+          <span class="blog-card__icon">🌙</span>
+          <span class="blog-card__tag">Sleep Habits</span>
+          <h3>Building a Wind-Down Routine That Actually Works</h3>
+          <p>The handful of habits that make the biggest measurable difference to how fast — and how well — you fall asleep.</p>
+          <div class="blog-card__meta"><span>Jul 14, 2026</span><span>·</span><span>3 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/melatonin-free.html" class="blog-card" data-category="Why MoonBites">
+          <span class="blog-card__icon">✦</span>
+          <span class="blog-card__tag">Why MoonBites</span>
+          <h3>Why We Left Melatonin Out of MoonBites</h3>
+          <p>Melatonin is a hormone, not a nutrient — and that distinction matters more than most sleep aids let on.</p>
+          <div class="blog-card__meta"><span>Jul 11, 2026</span><span>·</span><span>2 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/ashwagandha.html" class="blog-card" data-category="Ingredients">
+          <span class="blog-card__icon">🌿</span>
+          <span class="blog-card__tag">Ingredients</span>
+          <h3>Ashwagandha and the Science of Stress</h3>
+          <p>Why an adaptogen with centuries of traditional use is also one of the most-studied botanicals in modern sleep research.</p>
+          <div class="blog-card__meta"><span>Jul 8, 2026</span><span>·</span><span>2 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/ltheanine.html" class="blog-card" data-category="Ingredients">
+          <span class="blog-card__icon">🍵</span>
+          <span class="blog-card__tag">Ingredients</span>
+          <h3>L-Theanine: How a Compound From Tea Leaves Helps You Unwind</h3>
+          <p>Not a sedative — an amino acid that quiets mental noise without knocking you out.</p>
+          <div class="blog-card__meta"><span>Jul 5, 2026</span><span>·</span><span>2 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/magnesium.html" class="blog-card" data-category="Ingredients">
+          <span class="blog-card__icon">💊</span>
+          <span class="blog-card__tag">Ingredients</span>
+          <h3>Magnesium Glycinate: The Mineral Most of Us Are Missing</h3>
+          <p>Involved in over 300 enzymatic reactions — and one of the most common nutritional shortfalls in modern diets.</p>
+          <div class="blog-card__meta"><span>Jul 2, 2026</span><span>·</span><span>2 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+        <a href="blog/sleep-and-health.html" class="blog-card" data-category="Sleep Science">
+          <span class="blog-card__icon">🩺</span>
+          <span class="blog-card__tag">Sleep Science</span>
+          <h3>Why Sleep Is Your Body's Most Underrated Health Tool</h3>
+          <p>Immune function, memory, mood — the case for treating sleep as a top-tier health priority, not an afterthought.</p>
+          <div class="blog-card__meta"><span>Jun 29, 2026</span><span>·</span><span>3 min read</span></div>
+          <span class="blog-card__link">Read article →</span>
+        </a>
+
+      </div>
+
+      <!-- MYTH OR FACT -->
+      <section class="blog-myths reveal">
+        <span class="section-tag">Myth Or Fact</span>
+        <h3>Quick Sleep Myths, Busted</h3>
+        <div class="myth-grid">
+          <button class="myth-card" type="button" aria-expanded="false">
+            <span class="myth-card__q">"Cheese before bed gives you nightmares."</span>
+            <span class="myth-card__reveal">Reveal answer <span class="myth-card__arrow">▾</span></span>
+            <span class="myth-card__a">Myth. There's no solid clinical evidence linking cheese specifically to nightmares. The myth likely persists because heavy or rich meals close to bedtime can cause indigestion — and indigestion is genuinely associated with more vivid, disrupted dream recall.</span>
+          </button>
+          <button class="myth-card" type="button" aria-expanded="false">
+            <span class="myth-card__q">"You can 'catch up' on sleep over the weekend."</span>
+            <span class="myth-card__reveal">Reveal answer <span class="myth-card__arrow">▾</span></span>
+            <span class="myth-card__a">Mostly myth. Sleeping in can ease sleep debt short-term, but research suggests it doesn't fully reverse the metabolic and cognitive effects of chronic short sleep during the week. Consistency beats makeup sleep.</span>
+          </button>
+          <button class="myth-card" type="button" aria-expanded="false">
+            <span class="myth-card__q">"Everyone needs exactly 8 hours of sleep."</span>
+            <span class="myth-card__reveal">Reveal answer <span class="myth-card__arrow">▾</span></span>
+            <span class="myth-card__a">Myth. Most adults need somewhere in the 7–9 hour range, but the number that actually matters is the one that leaves you rested and functioning well — not a fixed universal target.</span>
+          </button>
+          <button class="myth-card" type="button" aria-expanded="false">
+            <span class="myth-card__q">"A nightcap helps you sleep better."</span>
+            <span class="myth-card__reveal">Reveal answer <span class="myth-card__arrow">▾</span></span>
+            <span class="myth-card__a">Myth. Alcohol can help you fall asleep faster, but it delays and shortens REM sleep and fragments sleep later in the night — see our <a href="blog/alcohol-and-sleep.html">full breakdown</a>.</span>
+          </button>
+          <button class="myth-card" type="button" aria-expanded="false">
+            <span class="myth-card__q">"You can train yourself to need less sleep."</span>
+            <span class="myth-card__reveal">Reveal answer <span class="myth-card__arrow">▾</span></span>
+            <span class="myth-card__a">Myth. Studies on chronic partial sleep restriction show people adapt subjectively — they stop feeling as tired — while their actual cognitive performance keeps declining. You're not adapting, you're just not noticing anymore.</span>
+          </button>
+          <button class="myth-card" type="button" aria-expanded="false">
+            <span class="myth-card__q">"Warm milk makes you sleepy."</span>
+            <span class="myth-card__reveal">Reveal answer <span class="myth-card__arrow">▾</span></span>
+            <span class="myth-card__a">Mostly myth. The tryptophan in a glass of milk is too small a dose to meaningfully sedate you. The comforting bedtime ritual itself is likely doing more of the work than the milk's chemistry.</span>
+          </button>
+        </div>
+      </section>
+
+      <div class="blog-cta reveal">
+        <h3>That's the free stuff — more added regularly</h3>
+        <p>No newsletter signup, no paywall. This page gets a new research breakdown added every few days — bookmark it if you want to keep up.</p>
+        <a href="#top" class="btn btn--ghost">Back to top ↑</a>
+        <p class="blog-cta__soft">Curious what we actually build with all this research? <a href="product.html">MoonBites is here</a> — entirely optional.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo"><img src="logo-lockup.png?v=6" alt="MoonBites" class="footer__logo-icon" /></span>
+          <p>Helping you sleep better, naturally. Founded by sleep scientists and wellness advocates who believe rest is a right, not a luxury.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col"><h5>Shop</h5><a href="product.html">Get MoonBites</a><a href="index.html#membership">Membership</a></div>
+          <div class="footer__col"><h5>Learn</h5><a href="blog.html">The Journal</a><a href="index.html#faq">FAQ</a></div>
+          <div class="footer__col"><h5>Support</h5><a href="index.html#faq">FAQ</a><a href="#">Contact Us</a></div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 MoonBites. All rights reserved. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. Educational content on this page is general in nature and is not medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
