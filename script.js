@@ -50,47 +50,34 @@ if (hamburger && mobileMenu) {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
 
-    // Background stars — white + occasional gold
-    stars = Array.from({ length: 360 }, () => ({
+    // Background stars — sparse, tiny, mostly white. Kept deliberately subtle
+    // so the star field reads as atmosphere, not motion competing with content.
+    stars = Array.from({ length: 110 }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      r: Math.random() * 1.7 + 0.1,
+      r: Math.random() * 1.1 + 0.1,
       phase: Math.random() * Math.PI * 2,
-      speed: Math.random() * 0.9 + 0.2,
+      speed: Math.random() * 0.35 + 0.08,
       gold: Math.random() < 0.12,
     }));
 
-    // Constellation anchor nodes — larger gold stars
-    constNodes = Array.from({ length: 32 }, () => ({
+    // Constellation anchor nodes — a handful of soft gold points, no connecting lines
+    constNodes = Array.from({ length: 8 }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      r: Math.random() * 1.3 + 1.0,
+      r: Math.random() * 1.1 + 0.9,
       phase: Math.random() * Math.PI * 2,
-      speed: Math.random() * 0.4 + 0.1,
+      speed: Math.random() * 0.18 + 0.05,
     }));
-
-    // Connect nearby nodes with lines
     constEdges = [];
-    for (let i = 0; i < constNodes.length; i++) {
-      let cnt = 0;
-      for (let j = i + 1; j < constNodes.length; j++) {
-        if (cnt >= 2) break;
-        const dx = constNodes[i].x - constNodes[j].x;
-        const dy = constNodes[i].y - constNodes[j].y;
-        if (Math.sqrt(dx * dx + dy * dy) < Math.min(W, H) * 0.2) {
-          constEdges.push([i, j]);
-          cnt++;
-        }
-      }
-    }
 
-    // 4-point sparkle nodes (✦ diamond shapes)
-    sparkleNodes = Array.from({ length: 14 }, () => ({
+    // 4-point sparkle nodes (✦ diamond shapes) — very few, very soft
+    sparkleNodes = Array.from({ length: 4 }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      size: Math.random() * 6 + 3,
+      size: Math.random() * 3.5 + 2,
       phase: Math.random() * Math.PI * 2,
-      speed: Math.random() * 0.5 + 0.2,
+      speed: Math.random() * 0.25 + 0.1,
     }));
   }
 
@@ -302,7 +289,7 @@ const SHOPIFY_CART_LINKS = {
   const cta = document.getElementById('purchaseCta');
   if (!grid || !cta) return;
   const cards = grid.querySelectorAll('.plan-card');
-  const ctaPriceByPlan = { single: 'TRY RISK FREE • £23.99', triple: 'TRY RISK FREE • £17.99' };
+  const ctaPriceByPlan = { single: 'TRY RISK FREE • £23.99', triple: 'TRY RISK FREE • £17.99', 'single-onetime': 'BUY NOW • £29.99' };
   let selectedPlan = 'triple';
 
   cards.forEach(card => {
