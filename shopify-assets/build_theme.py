@@ -1,7 +1,7 @@
 import re, os, sys
 sys.stdout.reconfigure(encoding='utf-8')
 
-BASE = r'c:\Users\archi\Desktop\CLAUDE\WEBSITE'
+BASE = r'c:\Users\archi\Desktop\CLAUDE\MOONBITES WEBSITE'
 OUT = os.path.join(BASE, 'shopify-assets')
 
 CDN = {

@@ -123,30 +123,38 @@
   </div>
 
   <!-- HERO -->
-  <section class="hero hero--fullbleed" id="hero">
+  <section class="hero hero--pdp" id="hero">
     <canvas id="starsCanvas"></canvas>
-    <img src="hero-bedside.png" alt="MoonBites Sleep Gummies tub on a cozy bedside table at night, with loose gummies, a cup of tea, and a book nearby" class="hero__bleed-img" />
-    <div class="hero__scrim"></div>
-    <div class="hero__content">
-      <span class="hero__badge">✦ Melatonin-Free ✦ UK Based Brand ✦ Formulated By Experts</span>
-      <h1 class="hero__headline">Drift Into<br /><em>Deeper Sleep</em></h1>
-      <p class="hero__sub">MoonBites are melatonin-free sleep gummies crafted with Magnesium Glycinate, KSM-66&reg; Ashwagandha and L-Theanine to help you fall asleep faster, stay asleep longer, and wake up genuinely refreshed — no grogginess, no dependency.</p>
-      <div class="hero__cta">
+    <div class="pdp-hero__glow" aria-hidden="true"></div>
+    <div class="pdp-hero__inner">
+      <span class="pdp-hero__badge">
+        <span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 1 1 10.5 4.5a7 7 0 0 0 10 10z"/></svg></span>
+        Melatonin-Free · UK Formulated · Expert-Backed
+      </span>
+
+      <h1 class="pdp-hero__headline">Drift Into<br /><em>Deeper Sleep</em></h1>
+
+      <div class="pdp-hero__rating">
+        <span class="pdp-hero__stars">★★★★★</span>
+        <strong>4.9/5</strong><span>· 3,200+ members</span>
+      </div>
+
+      <div class="pdp-hero__product">
+        <img src="6-nobg.png" alt="MoonBites Strawberry Chamomile Sleep Gummies tub with fresh strawberries and gummies" class="pdp-hero__product-img" />
+      </div>
+
+      <p class="pdp-hero__sub">Melatonin-free sleep gummies crafted with Magnesium Glycinate, KSM-66&reg; Ashwagandha and L-Theanine — fall asleep faster, stay asleep longer, wake up genuinely refreshed.</p>
+
+      <div class="pdp-hero__cta">
         <a href="#products" class="btn btn--primary btn--lg">Start Your Sleep Ritual</a>
         <a href="#benefits" class="btn btn--ghost btn--lg">Learn More</a>
       </div>
-      <div class="hero__trust">
-        <div class="trust-pill">⭐⭐⭐⭐⭐ 4.9/5 · 3,200+ reviews</div>
-        <div class="trust-pill">✓ 30-Night Guarantee</div>
-        <div class="trust-pill">✓ Free Shipping £40+</div>
+
+      <div class="pdp-hero__trust">
+        <span class="pdp-pill"><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 5 3.2 8.4 7.5 10 4.3-1.6 7.5-5 7.5-10V6L12 3Z"/><path d="M9 12.2l2 2 4-4.2"/></svg></span> 30-Night Guarantee</span>
+        <span class="pdp-pill"><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h11v11H2z"/><path d="M13 8h4l4 3.5V15h-8z"/><circle cx="6" cy="18" r="1.7"/><circle cx="17.5" cy="18" r="1.7"/></svg></span> Free Shipping £40+</span>
+        <span class="pdp-pill"><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13c0-6 5-9 15-9 0 10-5 15-11 15A5 5 0 0 1 4 13Z"/><path d="M6 18C10 13 13 10 19 4"/></svg></span> Melatonin-Free</span>
       </div>
-      <p class="hero__social-line">🌙 Join thousands of members transforming their sleep every month.</p>
-    </div>
-    <div class="hero__wave">
-      <svg class="hero__wave-svg" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
-        <path class="hero__wave-path" d="M0,50 C240,110 480,0 720,40 C960,80 1200,10 1440,55 L1440,110 L0,110 Z"></path>
-      </svg>
-      <a href="product.html" class="btn btn--primary btn--lg hero__wave-cta">Get MoonBites</a>
     </div>
   </section>
 
@@ -291,7 +299,7 @@
   </section>
 
   <!-- GET MOONBITES — PURCHASE -->
-  <section class="purchase section" id="products">
+  <section class="purchase section section--tight purchase--pdp" id="products">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Get MoonBites</span>
@@ -305,20 +313,31 @@
           <span class="purchase__rating">⭐⭐⭐⭐⭐ <strong>4.9/5</strong> · <a href="#amazon-reviews">real Amazon reviews</a></span>
           <img src="1.jpg" alt="MoonBites Sleep Gummies" class="purchase__img" />
           <span class="purchase__flavour">Strawberry Chamomile · Botanical Night Blend · 60 ct</span>
-          <ul class="purchase__highlights">
-            <li><span>💜</span> <strong>Magnesium Glycinate</strong> — supports normal muscle &amp; nervous system function</li>
-            <li><span>🍵</span> <strong>L-Theanine</strong> — helps you unwind before bed</li>
-            <li><span>🌿</span> <strong>Botanical Night Blend</strong> — Ashwagandha, Valerian &amp; Chamomile</li>
-            <li><span>😴</span> <strong>Melatonin-Free</strong> — no melatonin, no morning grogginess</li>
-          </ul>
         </div>
 
         <div class="purchase__buy">
 
           <div class="plan-grid" id="planGrid">
+            <label class="plan-card plan-card--best" data-plan="triple">
+              <input type="radio" name="plan" checked />
+              <span class="plan-card__ribbon">BEST VALUE</span>
+              <div class="plan-card__main">
+                <span class="plan-card__radio"></span>
+                <div class="plan-card__left">
+                  <span class="plan-card__title">Buy 2, Get 1 FREE</span>
+                  <span class="plan-card__detail">3 Tubs · Delivered Every 3 Months</span>
+                </div>
+                <div class="plan-card__right">
+                  <span class="plan-card__price"><s>£29.99</s>£17.99<small>/tub</small></span>
+                  <span class="plan-card__off plan-card__off--gold">40% OFF</span>
+                </div>
+              </div>
+              <span class="plan-card__save">Save 40% — the membership's biggest saving</span>
+            </label>
             <label class="plan-card" data-plan="single">
               <input type="radio" name="plan" />
               <div class="plan-card__main">
+                <span class="plan-card__radio"></span>
                 <div class="plan-card__left">
                   <span class="plan-card__badge">RECOMMENDED</span>
                   <span class="plan-card__title">Subscribe &amp; Save</span>
@@ -331,20 +350,18 @@
               </div>
               <span class="plan-card__meta">Monthly delivery · Auto-renew · Cancel anytime</span>
             </label>
-            <label class="plan-card plan-card--best" data-plan="triple">
-              <input type="radio" name="plan" checked />
-              <span class="plan-card__ribbon">⭐ BEST VALUE</span>
+            <label class="plan-card plan-card--basic" data-plan="single-onetime">
+              <input type="radio" name="plan" />
               <div class="plan-card__main">
+                <span class="plan-card__radio"></span>
                 <div class="plan-card__left">
-                  <span class="plan-card__title">Buy 2, Get 1 FREE</span>
-                  <span class="plan-card__detail">3 Tubs · Delivered Every 3 Months</span>
+                  <span class="plan-card__title">One-Time Purchase</span>
+                  <span class="plan-card__detail">No commitment · No membership perks</span>
                 </div>
                 <div class="plan-card__right">
-                  <span class="plan-card__price"><s>£29.99</s>£17.99<small>/tub</small></span>
-                  <span class="plan-card__off plan-card__off--gold">40% OFF</span>
+                  <span class="plan-card__price">£29.99</span>
                 </div>
               </div>
-              <span class="plan-card__save">Save 40% — the membership's biggest saving</span>
             </label>
           </div>
 
@@ -361,9 +378,9 @@
           <button type="button" class="btn btn--primary btn--xl purchase__cta" id="purchaseCta">TRY RISK FREE • £17.99</button>
 
           <div class="purchase__assure">
-            <span>🚚 Free UK Shipping</span>
-            <span>🛡️ 30-Day Money Back Guarantee</span>
-            <span>🔒 Secure Checkout</span>
+            <span><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h11v11H2z"/><path d="M13 8h4l4 3.5V15h-8z"/><circle cx="6" cy="18" r="1.7"/><circle cx="17.5" cy="18" r="1.7"/></svg></span> Free UK Shipping</span>
+            <span><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 5 3.2 8.4 7.5 10 4.3-1.6 7.5-5 7.5-10V6L12 3Z"/><path d="M9 12.2l2 2 4-4.2"/></svg></span> 30-Night Guarantee</span>
+            <span><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></span> Secure Checkout</span>
           </div>
 
           <div class="purchase__pay" aria-label="Accepted payment methods">
