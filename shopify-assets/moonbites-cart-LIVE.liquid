@@ -1,0 +1,222 @@
+{%- liquid
+  assign free_ship_threshold = 4000
+  assign remaining = free_ship_threshold | minus: cart.total_price
+  assign ship_progress = cart.total_price | times: 100.0 | divided_by: free_ship_threshold | at_most: 100
+
+  assign triple_product = all_products['moonbites-sleep-gummies-1']
+  assign hamper_product = all_products['moonbites-members-hamper-bundle']
+  assign cart_product_ids = cart.items | map: 'product_id'
+  assign show_triple = true
+  assign show_hamper = true
+  if triple_product == blank or cart_product_ids contains triple_product.id
+    assign show_triple = false
+  endif
+  if hamper_product == blank or cart_product_ids contains hamper_product.id
+    assign show_hamper = false
+  endif
+-%}
+
+<div id="moonbitesCartSection" data-section-id="{{ section.id }}">
+  <section class="cart-page-hero">
+    <div class="container cart-page-hero__inner">
+
+      <div class="cart-progress">
+        <div class="cart-progress__step is-active">
+          <span class="cart-progress__icon">🛒</span>
+          <span class="cart-progress__label">Cart</span>
+        </div>
+        <span class="cart-progress__line"></span>
+        <div class="cart-progress__step">
+          <span class="cart-progress__icon">🚚</span>
+          <span class="cart-progress__label">Shipping</span>
+        </div>
+        <span class="cart-progress__line"></span>
+        <div class="cart-progress__step">
+          <span class="cart-progress__icon">🎉</span>
+          <span class="cart-progress__label">Complete</span>
+        </div>
+      </div>
+
+      {%- if cart.item_count == 0 -%}
+        <div class="cart-empty">
+          <span class="cart-empty__icon">🌙</span>
+          <h1 class="cart-empty__title">Your cart is a blank canvas</h1>
+          <p class="cart-empty__sub">Add MoonBites to start building your nightly ritual.</p>
+          <a href="{{ all_products['moonbites-sleep-gummies'].url | default: routes.root_url }}" class="btn btn--primary btn--lg">Shop MoonBites</a>
+        </div>
+      {%- else -%}
+        <h1 class="cart-title">Your Cart <span class="cart-title__count">{{ cart.item_count }} item{% if cart.item_count != 1 %}s{% endif %}</span></h1>
+
+        <div class="cart-layout">
+          <div class="cart-items">
+            {%- for line in cart.items -%}
+              <article class="cart-item" data-key="{{ line.key }}" data-line="{{ forloop.index }}">
+                <a href="{{ line.url }}" class="cart-item__image">
+                  <img
+                    src="{{ line.image | image_url: width: 300 }}"
+                    alt="{{ line.title | escape }}"
+                    loading="lazy"
+                    width="150"
+                    height="150"
+                  >
+                </a>
+                <div class="cart-item__body">
+                  <div class="cart-item__top">
+                    <div>
+                      <a href="{{ line.url }}" class="cart-item__name">{{ line.product.title }}</a>
+                      <div class="cart-item__rating">★★★★★ <span>4.9 (3,200+)</span></div>
+                      {%- unless line.variant.title == 'Default Title' -%}
+                        <div class="cart-item__variant">{{ line.variant.title }}</div>
+                      {%- endunless -%}
+                      {%- if line.selling_plan_allocation -%}
+                        <span class="cart-item__badge">🔁 {{ line.selling_plan_allocation.selling_plan.name }}</span>
+                      {%- endif -%}
+                    </div>
+                    <div class="cart-item__price">
+                      {%- if line.original_line_price > line.final_line_price -%}
+                        <s class="cart-item__price-old">{{ line.original_line_price | money }}</s>
+                      {%- endif -%}
+                      <span class="cart-item__price-now">{{ line.final_line_price | money }}</span>
+                    </div>
+                  </div>
+                  <div class="cart-item__bottom">
+                    <div class="qty-pill" data-line="{{ forloop.index }}">
+                      <button type="button" class="qty-pill__btn qty-pill__btn--minus" aria-label="Decrease quantity"{% if line.quantity <= 1 %} disabled{% endif %}>−</button>
+                      <span class="qty-pill__num">{{ line.quantity }}</span>
+                      <button type="button" class="qty-pill__btn qty-pill__btn--plus" aria-label="Increase quantity">+</button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-line="{{ forloop.index }}">🗑 Remove</button>
+                  </div>
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+
+          <div class="cart-sidebar">
+            <div class="cart-summary-card">
+              <h2 class="cart-summary-card__title">Order Summary</h2>
+
+              {%- if remaining > 0 -%}
+                <div class="cart-shipping-nudge">
+                  <p>Add <strong>{{ remaining | money }}</strong> more for free UK delivery</p>
+                  <div class="cart-shipping-nudge__track">
+                    <div class="cart-shipping-nudge__fill" style="width: {{ ship_progress }}%;"></div>
+                  </div>
+                </div>
+              {%- endif -%}
+
+              <div class="cart-summary-row">
+                <span>Subtotal</span>
+                <span>{{ cart.items_subtotal_price | money }}</span>
+              </div>
+              {%- if cart.total_discount > 0 -%}
+                <div class="cart-summary-row cart-summary-row--discount">
+                  <span>Discount</span>
+                  <span>−{{ cart.total_discount | money }}</span>
+                </div>
+              {%- endif -%}
+              <div class="cart-summary-row">
+                <span>Shipping</span>
+                <span>{% if remaining > 0 %}Calculated at checkout{% else %}FREE{% endif %}</span>
+              </div>
+              <div class="cart-summary-row">
+                <span>Taxes</span>
+                <span>{% if cart.taxes_included %}Included{% else %}Calculated at checkout{% endif %}</span>
+              </div>
+              <div class="cart-summary-divider"></div>
+              <div class="cart-summary-row cart-summary-row--total">
+                <span>Total</span>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
+
+              <div class="cart-trust-row">
+                <div class="cart-trust-item"><span>🔒</span>Secure Checkout</div>
+                <div class="cart-trust-item"><span>🚚</span>Fast UK Delivery</div>
+                <div class="cart-trust-item"><span>💳</span>Secure Payments</div>
+                <div class="cart-trust-item"><span>⭐</span>30-Day Guarantee</div>
+              </div>
+
+              <form action="{{ routes.cart_url }}" method="post" class="cart-checkout-form">
+                <button type="submit" name="checkout" class="btn btn--primary cart-checkout-btn">Complete Secure Checkout</button>
+              </form>
+
+              {%- if shop.enabled_payment_types.size > 0 -%}
+                <div class="cart-pay-icons" aria-label="Accepted payment methods">
+                  {%- for type in shop.enabled_payment_types -%}
+                    {{ type | payment_type_svg_tag }}
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+
+              <div class="cart-shipping-estimate">
+                <span class="cart-shipping-estimate__icon">🚚</span>
+                <div>
+                  <strong>Ships tomorrow</strong>
+                  <span id="cartDeliveryEstimate">Estimated delivery: —</span>
+                </div>
+              </div>
+
+              <div class="cart-guarantee-card">
+                <span class="cart-guarantee-card__icon">🌙</span>
+                <div>
+                  <strong>30-Day Sleep Guarantee</strong>
+                  <p>Love MoonBites or we'll refund you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-social-proof">
+          <span class="cart-social-proof__stars">★★★★★</span>
+          <p><strong>Over 100,000 tubs sold</strong> — trusted by thousands improving their sleep naturally.</p>
+        </div>
+
+        {%- if show_triple or show_hamper -%}
+          <div class="cart-crosssell">
+            <h3 class="cart-crosssell__title">Complete Your Sleep Routine</h3>
+            <div class="cart-crosssell__track">
+              {%- if show_triple -%}
+                <div class="cart-crosssell-card">
+                  <img src="{{ triple_product.featured_image | image_url: width: 240 }}" alt="{{ triple_product.title | escape }}" loading="lazy">
+                  <h4>{{ triple_product.title }}</h4>
+                  <p>{{ triple_product.price | money }}</p>
+                  <button type="button" class="cart-crosssell-card__add" data-variant-id="{{ triple_product.selected_or_first_available_variant.id }}">Add</button>
+                </div>
+              {%- endif -%}
+              {%- if show_hamper -%}
+                <div class="cart-crosssell-card">
+                  <img src="{{ hamper_product.featured_image | image_url: width: 240 }}" alt="{{ hamper_product.title | escape }}" loading="lazy">
+                  <h4>{{ hamper_product.title }}</h4>
+                  <p>{{ hamper_product.price | money }}</p>
+                  <button type="button" class="cart-crosssell-card__add" data-variant-id="{{ hamper_product.selected_or_first_available_variant.id }}">Add</button>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- unless cart.item_count == 0 -%}
+    <div class="sticky-mobile cart-sticky-bar" id="stickyMobile">
+      <div class="sticky-bar__inner cart-sticky-bar__inner">
+        <div class="cart-sticky-bar__total">
+          <span class="cart-sticky-bar__total-label">Total</span>
+          <span class="cart-sticky-bar__total-amount">{{ cart.total_price | money }}</span>
+        </div>
+        <form action="{{ routes.cart_url }}" method="post" class="cart-sticky-bar__form">
+          <button type="submit" name="checkout" class="btn btn--primary cart-sticky-bar__cta">Complete Order →</button>
+        </form>
+      </div>
+    </div>
+  {%- endunless -%}
+</div>
+
+{% schema %}
+{
+  "name": "MoonBites Cart",
+  "settings": []
+}
+{% endschema %}
