@@ -320,35 +320,40 @@
           <div class="plan-grid" id="planGrid">
             <label class="plan-card plan-card--best" data-plan="triple">
               <input type="radio" name="plan" checked />
-              <span class="plan-card__ribbon">BEST VALUE</span>
+              <span class="plan-card__ribbon"><svg class="plan-card__ribbon-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Best Value</span>
               <div class="plan-card__main">
                 <span class="plan-card__radio"></span>
                 <div class="plan-card__left">
-                  <span class="plan-card__title">Buy 2, Get 1 FREE</span>
-                  <span class="plan-card__detail">3 Tubs · Delivered Every 3 Months</span>
+                  <span class="plan-card__title">Buy 2, Get 1 Free</span>
+                  <span class="plan-card__detail">3 tubs · delivered every 3 months</span>
                 </div>
                 <div class="plan-card__right">
-                  <span class="plan-card__price"><s>£29.99</s>£17.99<small>/tub</small></span>
-                  <span class="plan-card__off plan-card__off--gold">40% OFF</span>
+                  <span class="plan-card__price"><small class="plan-card__was">£29.99</small>£17.99<small class="plan-card__unit">/tub</small></span>
+                  <span class="plan-card__off plan-card__off--gold">Save 40%</span>
                 </div>
               </div>
-              <span class="plan-card__save">Save 40% — the membership's biggest saving</span>
+              <div class="plan-card__perks">
+                <span class="plan-card__perk"><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>Save £36 — the membership's biggest saving</span>
+              </div>
             </label>
             <label class="plan-card" data-plan="single">
               <input type="radio" name="plan" />
+              <span class="plan-card__ribbon plan-card__ribbon--soft">Recommended</span>
               <div class="plan-card__main">
                 <span class="plan-card__radio"></span>
                 <div class="plan-card__left">
-                  <span class="plan-card__badge">RECOMMENDED</span>
                   <span class="plan-card__title">Subscribe &amp; Save</span>
-                  <span class="plan-card__detail">1 Tub · 1 Month Supply</span>
+                  <span class="plan-card__detail">1 tub · 1 month supply</span>
                 </div>
                 <div class="plan-card__right">
-                  <span class="plan-card__price"><s>£29.99</s>£23.99</span>
-                  <span class="plan-card__off">20% OFF</span>
+                  <span class="plan-card__price"><small class="plan-card__was">£29.99</small>£23.99</span>
+                  <span class="plan-card__off">Save 20%</span>
                 </div>
               </div>
-              <span class="plan-card__meta">Monthly delivery · Auto-renew · Cancel anytime</span>
+              <div class="plan-card__perks">
+                <span class="plan-card__perk"><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15"/></svg></span>Delivered monthly</span>
+                <span class="plan-card__perk"><span class="pdp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></span>Cancel anytime</span>
+              </div>
             </label>
             <label class="plan-card plan-card--basic" data-plan="single-onetime">
               <input type="radio" name="plan" />
@@ -356,7 +361,7 @@
                 <span class="plan-card__radio"></span>
                 <div class="plan-card__left">
                   <span class="plan-card__title">One-Time Purchase</span>
-                  <span class="plan-card__detail">No commitment · No membership perks</span>
+                  <span class="plan-card__detail">No commitment · no membership perks</span>
                 </div>
                 <div class="plan-card__right">
                   <span class="plan-card__price">£29.99</span>
