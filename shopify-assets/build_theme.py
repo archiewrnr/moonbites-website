@@ -10,6 +10,17 @@ CDN = {
     '2.jpg': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-benefits.jpg?v=1781468045',
     '4.jpg': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-how-it-works.jpg?v=1781468045',
     '6.jpg': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-hero.jpg?v=1781468045',
+    '6-nobg.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-hero-product.png?v=1785406922',
+    'hamper-bundle.jpg': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-hamper-bundle.jpg?v=1785406921',
+    'ritual-mask-light.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-ritual-mask-light.png?v=1785406921',
+    'ritual-pillow-spray.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-ritual-pillow-spray.png?v=1785406921',
+    'showcase-bathsoak.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-showcase-bathsoak.png?v=1785406921',
+    'showcase-journal.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-showcase-journal.png?v=1785406921',
+    'showcase-tea.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-showcase-tea.png?v=1785406921',
+    'showcase-welcomekit.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-showcase-welcomekit.png?v=1785406921',
+    '3.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-benefits-comparison.jpg?v=1785406921',
+    '6.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-gummies-strawberries.jpg?v=1785406921',
+    'logo-lockup.png': 'https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-logo-lockup.png?v=1785410249',
 }
 
 # ───────────────────────── CSS ─────────────────────────
