@@ -1,0 +1,132 @@
+{%- comment -%}
+  MoonBites Quiz Popup — compliance flags for legal/accountant review before launch:
+  - No use of "insomnia", "sleep aid", "clinically proven", "treats", or "cures"
+    anywhere in this file — verified at time of writing.
+  - All four segmentation answers describe subjective, self-reported experience
+    only (not diagnosis or medical claims).
+  - Step-2 personalised response lines are experiential/lifestyle framing
+    ("wind down", "evening routine"). Flagging "Waking up foggy isn't how
+    mornings should feel." specifically — it implies a causal fix, worth a
+    second look even though it names no ingredient or mechanism.
+  - "Racing mind at bedtime" and "Restless nights are exhausting" are both
+    describing the customer's own stated experience, not a claim about the
+    product's effect — flagging for completeness only.
+{%- endcomment -%}
+<section
+  id="mbq-root"
+  class="mbq"
+  data-delay="{{ section.settings.trigger_delay | default: 8 }}"
+  data-scroll="{{ section.settings.trigger_scroll | default: 40 }}"
+  data-exit-intent="{{ section.settings.enable_exit_intent }}"
+  data-discount-pct="{{ section.settings.discount_pct | default: 20 }}"
+  data-discount-code="{{ section.settings.discount_code | default: 'MOONBITES20' }}"
+  data-shop-url="{{ section.settings.shop_url | default: '/products/moonbites-sleep-gummies' }}"
+  data-consent-enabled="{{ section.settings.enable_consent }}"
+  data-klaviyo-list-id="{{ section.settings.klaviyo_list_id }}"
+>
+  <div class="mbq-overlay" id="mbqOverlay" hidden>
+    <div class="mbq-card" role="dialog" aria-modal="true" aria-labelledby="mbqHeadline" id="mbqCard">
+      <button type="button" class="mbq-close" id="mbqClose" aria-label="Close popup">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+      </button>
+
+      <img src="https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-product-1.jpg?v=1781468045" alt="MoonBites Sleep Gummies" class="mbq-product-img" />
+
+      <div class="mbq-steps">
+
+        <!-- STEP 1: SEGMENTATION QUESTION -->
+        <div class="mbq-step is-active" data-step="quiz">
+          <p class="mbq-eyebrow">✦ Exclusive Offer</p>
+          <h2 class="mbq-headline" id="mbqHeadline">You've Got <span class="mbq-pct">{{ section.settings.discount_pct | default: 20 }}%</span> Off + Free Shipping</h2>
+          <p class="mbq-subhead">To claim, tell us what's keeping you up:</p>
+
+          <div class="mbq-options" role="group" aria-label="Select what's keeping you up at night">
+            <button type="button" class="mbq-option" data-segment="sleep-onset" data-response="Mind racing at bedtime? Let's help you unwind.">
+              I take ages to fall asleep
+            </button>
+            <button type="button" class="mbq-option" data-segment="night-waking" data-response="Restless nights are exhausting. Let's fix your evening routine.">
+              I wake up through the night
+            </button>
+            <button type="button" class="mbq-option" data-segment="groggy" data-response="Waking up foggy isn't how mornings should feel.">
+              I wake up groggy and foggy
+            </button>
+            <button type="button" class="mbq-option" data-segment="melatonin-free" data-response="Ready for a gentler evening ritual — no melatonin needed.">
+              I want to wind down without melatonin
+            </button>
+          </div>
+
+          <button type="button" class="mbq-skip" id="mbqSkip1">No thanks, I sleep fine</button>
+        </div>
+
+        <!-- STEP 2: EMAIL CAPTURE -->
+        <div class="mbq-step" data-step="email">
+          <button type="button" class="mbq-back" id="mbqBack" aria-label="Go back">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Back
+          </button>
+          <p class="mbq-eyebrow" id="mbqResponse">&nbsp;</p>
+          <h2 class="mbq-headline">Unlock Your <span class="mbq-pct">{{ section.settings.discount_pct | default: 20 }}%</span> Off</h2>
+
+          <form class="mbq-form" id="mbqForm" novalidate>
+            <label class="mbq-sr-only" for="mbqEmail">Email address</label>
+            <input type="email" id="mbqEmail" name="email" class="mbq-input" placeholder="Enter your email address" autocomplete="email" inputmode="email" required />
+            <p class="mbq-error" id="mbqError" role="alert" hidden></p>
+
+            {%- if section.settings.enable_consent -%}
+            <label class="mbq-consent">
+              <input type="checkbox" id="mbqConsent" name="consent" />
+              <span>I'd like to receive emails from MoonBites. Unsubscribe anytime. See our <a href="/policies/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+            </label>
+            {%- endif -%}
+
+            <button type="submit" class="mbq-submit" id="mbqSubmit">
+              <span class="mbq-submit-label">Unlock My {{ section.settings.discount_pct | default: 20 }}%</span>
+              <span class="mbq-spinner" hidden aria-hidden="true"></span>
+            </button>
+          </form>
+          <p class="mbq-privacy">🔒 No spam. Unsubscribe anytime.</p>
+        </div>
+
+        <!-- STEP 3: REVEAL -->
+        <div class="mbq-step" data-step="reveal">
+          <div class="mbq-sparkles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="mbq-eyebrow">✦ You're In!</p>
+          <h2 class="mbq-headline">Here's Your Code</h2>
+          <div class="mbq-code-wrap">
+            <span class="mbq-code" id="mbqCode">{{ section.settings.discount_code | default: 'MOONBITES20' }}</span>
+            <button type="button" class="mbq-copy" id="mbqCopy" aria-label="Copy discount code">
+              <span class="mbq-copy-label">Copy code</span>
+            </button>
+          </div>
+          <a href="{{ section.settings.shop_url | default: '/products/moonbites-sleep-gummies' }}" class="mbq-shop-cta" id="mbqShopCta">Shop MoonBites →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ 'moonbites-quiz-popup.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'moonbites-quiz-popup.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "MoonBites Quiz Popup",
+  "settings": [
+    { "type": "header", "content": "Offer" },
+    { "type": "range", "id": "discount_pct", "label": "Discount percentage", "min": 5, "max": 50, "step": 5, "default": 20 },
+    { "type": "text", "id": "discount_code", "label": "Discount code to display", "default": "MOONBITES20" },
+    { "type": "url", "id": "shop_url", "label": "Shop CTA link" },
+    { "type": "header", "content": "Trigger" },
+    { "type": "range", "id": "trigger_delay", "label": "Time delay (seconds)", "min": 0, "max": 60, "step": 1, "default": 8 },
+    { "type": "range", "id": "trigger_scroll", "label": "Scroll depth (%)", "min": 0, "max": 100, "step": 5, "default": 40 },
+    { "type": "checkbox", "id": "enable_exit_intent", "label": "Enable exit-intent trigger (desktop)", "default": true },
+    { "type": "header", "content": "Consent & Integrations" },
+    { "type": "checkbox", "id": "enable_consent", "label": "Show marketing consent checkbox", "default": false },
+    { "type": "text", "id": "klaviyo_list_id", "label": "Klaviyo List ID (leave blank until ready to switch on)" }
+  ],
+  "presets": [ { "name": "MoonBites Quiz Popup" } ]
+}
+{% endschema %}
