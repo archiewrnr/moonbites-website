@@ -289,7 +289,7 @@ const SHOPIFY_CART_LINKS = {
   const cta = document.getElementById('purchaseCta');
   if (!grid || !cta) return;
   const cards = grid.querySelectorAll('.plan-card');
-  const ctaPriceByPlan = { single: 'TRY RISK FREE • £23.99', triple: 'TRY RISK FREE • £17.99', 'single-onetime': 'BUY NOW • £29.99' };
+  const ctaPriceByPlan = { single: 'TRY RISK FREE • £19.99', triple: 'TRY RISK FREE • £13.99', 'single-onetime': 'BUY NOW • £23.99' };
   let selectedPlan = 'triple';
 
   cards.forEach(card => {

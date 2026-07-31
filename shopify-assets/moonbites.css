@@ -312,23 +312,15 @@ ul { list-style: none; }
 .trust-badges--light { background: rgba(13,17,56,0.82); }
 
 /* ── WAVE SECTION DIVIDERS (cloud-scallop style) ── */
-.wave-divider { position: relative; width: 100%; height: 120px; line-height: 0; pointer-events: none; overflow: visible; }
+.wave-divider { position: relative; width: 100%; height: 70px; line-height: 0; pointer-events: none; overflow: hidden; }
 .wave-divider svg { width: 100%; height: 100%; display: block; }
-.wave-divider--top { margin-bottom: -64px; }
-.wave-divider--bottom { margin-top: -64px; transform: scaleY(-1); }
+.wave-divider--top { margin-bottom: -1px; }
+.wave-divider--bottom { margin-top: -1px; transform: scaleY(-1); }
 .wave-divider--dark .wave-divider__fill { fill: var(--navy); }
 .wave-divider--dark .wave-divider__soft { fill: rgba(8,12,34,0.5); }
 .wave-divider--light .wave-divider__fill { fill: var(--navy2); }
 .wave-divider--light .wave-divider__soft { fill: rgba(13,17,56,0.45); }
-.section:has(> .wave-divider--top) { padding-top: 20px; }
-.section:has(> .wave-divider--bottom) { padding-bottom: 20px; }
-@media (max-width: 640px) {
-  .wave-divider { height: 68px; }
-  .wave-divider--top { margin-bottom: -36px; }
-  .wave-divider--bottom { margin-top: -36px; }
-  .section:has(> .wave-divider--top) { padding-top: 14px; }
-  .section:has(> .wave-divider--bottom) { padding-bottom: 14px; }
-}
+@media (max-width: 640px) { .wave-divider { height: 44px; } }
 
 /* ── STATS ── */
 .stats { background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -848,10 +840,10 @@ body { padding-bottom: 72px; }
   .guarantee__inner { flex-direction: column; text-align: center; padding: 32px 24px; }
   .newsletter__form { flex-direction: column; }
   .science-banner__inner { flex-direction: column; text-align: center; }
-  .announce-bar__inner { gap: 12px; flex-wrap: nowrap; overflow: hidden; }
-  .announce-bar__text { font-size: 0.68rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .countdown { display: none; }
-  .announce-bar__cta { font-size: 0.7rem; padding: 4px 10px; white-space: nowrap; flex-shrink: 0; }
+  .announce-bar__inner { row-gap: 8px; column-gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .announce-bar__text { flex: 1 1 100%; text-align: center; font-size: 0.76rem; }
+  .countdown { order: 1; }
+  .announce-bar__cta { order: 2; font-size: 0.75rem; padding: 5px 14px; white-space: nowrap; }
   .ugc__social { flex-direction: column; align-items: center; }
 }
 
