@@ -404,6 +404,26 @@ document.querySelectorAll('.ritual-card__swatches').forEach(group => {
   });
 });
 
+// ── PDP GALLERY THUMBNAIL SWAP ──
+(function () {
+  const mainImg = document.getElementById('pdpMainImage');
+  const thumbs = document.querySelectorAll('.pdp-gallery__thumb');
+  if (!mainImg || !thumbs.length) return;
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const full = thumb.dataset.full;
+      if (!full || full === mainImg.src) return;
+      mainImg.style.opacity = '0';
+      setTimeout(() => {
+        mainImg.src = full;
+        mainImg.style.opacity = '1';
+      }, 120);
+      thumbs.forEach(t => t.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+    });
+  });
+})();
+
 // ── REVIEWS CAROUSEL ──
 const track = document.getElementById('reviewTrack');
 const dotsContainer = document.getElementById('reviewDots');

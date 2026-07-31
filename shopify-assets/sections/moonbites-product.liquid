@@ -1,0 +1,665 @@
+{%- liquid
+    assign current_variant = product.selected_or_first_available_variant
+    assign compare_price = current_variant.compare_at_price
+    assign gallery_images = product.images
+    assign hero_image = gallery_images | where: "alt", "MoonBites campfire lakeside hero" | first
+    assign hero_image = hero_image | default: gallery_images.first | default: product.featured_image
+    assign title_words = product.title | default: "MoonBites Sleep Gummies" | split: " "
+    assign title_first = title_words | first
+    assign title_rest = title_words | slice: 1, 10 | join: " "
+    assign triple_product = all_products['moonbites-sleep-gummies-1']
+    assign triple_variant = triple_product.selected_or_first_available_variant
+  -%}
+
+  <!-- CINEMATIC PDP HERO -->
+  <section class="hero hero--fullbleed hero--pdp">
+    <img src="{% if hero_image %}{{ hero_image | image_url: width: 1800 }}{% else %}https://cdn.shopify.com/s/files/1/1021/6305/4979/files/hero-bedside.png?v=1784648105{% endif %}" alt="{{ product.title | escape }}" class="hero__bleed-img" />
+    <div class="hero__scrim"></div>
+    <div class="hero__content">
+      <span class="hero__badge">✦ Melatonin-Free ✦ UK Based Brand ✦ Formulated By Experts</span>
+      <h1 class="hero__headline">{{ title_first }}<br /><em>{{ title_rest }}</em></h1>
+      <p class="hero__sub">Strawberry Chamomile · Botanical Night Blend. The gummies thousands of members build their nightly ritual around — melatonin-free, expertly formulated, and backed by a 30-night guarantee.</p>
+      <div class="hero__cta">
+        <a href="#plan" class="btn btn--primary btn--lg">Get MoonBites</a>
+        <a href="#pdp-faq" class="btn btn--ghost btn--lg">Questions?</a>
+      </div>
+      <div class="hero__trust">
+        <div class="trust-pill">⭐⭐⭐⭐⭐ 4.9/5 · 3,200+ members</div>
+        <div class="trust-pill">✓ 30-Night Guarantee</div>
+        <div class="trust-pill">✓ Free Shipping £40+</div>
+      </div>
+    </div>
+    <div class="hero__wave">
+      <svg class="hero__wave-svg" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+        <path class="hero__wave-path" d="M0,50 C240,110 480,0 720,40 C960,80 1200,10 1440,55 L1440,110 L0,110 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- GALLERY + PURCHASE PANEL -->
+  <section class="pdp-hero">
+    <canvas id="starsCanvas"></canvas>
+    <div class="container pdp-hero__grid">
+
+      <!-- GALLERY -->
+      <div class="pdp-gallery">
+        <div class="pdp-gallery__badge">✦ Melatonin-Free ✦ UK Formulated</div>
+        <div class="pdp-gallery__main">
+          <img id="pdpMainImage" src="{% if gallery_images.size > 0 %}{{ gallery_images.first | image_url: width: 900 }}{% else %}https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-product-1.jpg?v=1781468045{% endif %}" alt="{{ product.title | escape }}" />
+          <span class="pdp-gallery__glow"></span>
+        </div>
+        <div class="pdp-gallery__thumbs" id="pdpThumbs">
+          {%- if gallery_images.size > 0 -%}
+            {%- for image in gallery_images limit: 6 -%}
+              <button class="pdp-gallery__thumb{% if forloop.first %} is-active{% endif %}" data-full="{{ image | image_url: width: 900 }}">
+                <img src="{{ image | image_url: width: 160 }}" alt="{{ product.title | escape }} view {{ forloop.index }}" />
+              </button>
+            {%- endfor -%}
+          {%- else -%}
+            <button class="pdp-gallery__thumb is-active" data-full="https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-product-1.jpg?v=1781468045"><img src="https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-product-1.jpg?v=1781468045" alt="" /></button>
+            <button class="pdp-gallery__thumb" data-full="https://cdn.shopify.com/s/files/1/1021/6305/4979/files/hero-bedside.png?v=1784648105"><img src="https://cdn.shopify.com/s/files/1/1021/6305/4979/files/hero-bedside.png?v=1784648105" alt="" /></button>
+            <button class="pdp-gallery__thumb" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_30R3eXL6BPUSKw0spLsPfz6tg4K/hf_20260722_155412_3cf28978-9581-43b3-86c6-482b076096be.png"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_30R3eXL6BPUSKw0spLsPfz6tg4K/hf_20260722_155412_3cf28978-9581-43b3-86c6-482b076096be.png" alt="" /></button>
+            <button class="pdp-gallery__thumb" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_30R3eXL6BPUSKw0spLsPfz6tg4K/hf_20260722_155415_d99c5d1f-4250-4aa6-b92f-c790ae3eede7.png"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_30R3eXL6BPUSKw0spLsPfz6tg4K/hf_20260722_155415_d99c5d1f-4250-4aa6-b92f-c790ae3eede7.png" alt="" /></button>
+          {%- endif -%}
+        </div>
+        <div class="pdp-trust-row">
+          <span>🇬🇧 Made in the UK</span>
+          <span>🧪 Third-Party Tested</span>
+          <span>🌿 Vegan &amp; Non-GMO</span>
+        </div>
+      </div>
+
+      <!-- PURCHASE PANEL -->
+      <div class="pdp-info">
+        <div class="pdp-info__rating">
+          <span>⭐⭐⭐⭐⭐</span>
+          <strong>4.9/5</strong>
+          <span>· 3,200+ verified reviews</span>
+        </div>
+
+        <h1 class="pdp-info__title">{{ product.title | default: "MoonBites Sleep Gummies" }}</h1>
+        <p class="pdp-info__tagline">Melatonin-free · Botanical Night Blend · Formulated by sleep experts</p>
+
+        <div class="pdp-info__price">
+          {%- if current_variant.compare_at_price > current_variant.price -%}
+            <s class="pdp-info__price-old">{{ current_variant.compare_at_price | money }}</s>
+          {%- endif -%}
+          <span class="pdp-info__price-now" id="pdpPrice">{{ current_variant.price | default: 2999 | money }}</span>
+          <span class="pdp-info__price-note">one-time · or less with membership</span>
+        </div>
+
+        <p class="pdp-info__desc">{{ product.description | strip_html | split: '🌙' | first | strip | truncatewords: 40 | default: "MoonBites are melatonin-free sleep gummies crafted with Magnesium Glycinate, KSM-66® Ashwagandha and L-Theanine to help you fall asleep faster, stay asleep longer, and wake up genuinely refreshed — no grogginess, no dependency." }}</p>
+
+        <div class="pdp-benefits">
+          <div class="pdp-benefit"><span>💤</span>Fall Asleep Faster</div>
+          <div class="pdp-benefit"><span>🧠</span>Calm a Racing Mind</div>
+          <div class="pdp-benefit"><span>🌊</span>Deeper Sleep Cycles</div>
+          <div class="pdp-benefit"><span>☀️</span>Wake Restored</div>
+          <div class="pdp-benefit"><span>🌿</span>Botanical Blend</div>
+          <div class="pdp-benefit"><span>🔬</span>UK-Formulated</div>
+        </div>
+
+        <div class="pdp-plans" id="plan">
+          <span class="pdp-plans__label">Choose your option</span>
+
+          {%- assign allocation = current_variant.selling_plan_allocations.first -%}
+          {%- assign selling_plan = allocation.selling_plan -%}
+          {%- assign variant_price = current_variant.price | default: 2999 -%}
+          {%- assign sub_price = allocation.price | default: variant_price -%}
+          {%- assign triple_price = triple_variant.price -%}
+          {%- assign triple_per_tub = triple_price | divided_by: 3.0 | round -%}
+          {%- assign triple_pct_off = 0 -%}
+          {%- if triple_price and variant_price > 0 -%}
+            {%- assign triple_full_price = variant_price | times: 3 -%}
+            {%- assign triple_pct_off = triple_full_price | minus: triple_price | times: 100.0 | divided_by: triple_full_price | round -%}
+          {%- endif -%}
+
+          {%- if selling_plan -%}
+            <label class="plan-card" data-price="{{ sub_price }}" data-oldprice="{{ variant_price }}" data-qty="1" data-variant="{{ current_variant.id }}" data-selling-plan="{{ selling_plan.id }}">
+              <input type="radio" name="pdp-plan" />
+              <span class="plan-card__badge">RECOMMENDED</span>
+              <div class="plan-card__main">
+                <div class="plan-card__left">
+                  <span class="plan-card__title">Subscribe &amp; Save</span>
+                  <span class="plan-card__detail">{{ selling_plan.name }}</span>
+                </div>
+                <div class="plan-card__right">
+                  <span class="plan-card__price"><s>{{ variant_price | money }}</s>{{ sub_price | money }}</span>
+                  <span class="plan-card__off">20% OFF</span>
+                </div>
+              </div>
+              <span class="plan-card__meta">Free gifts included · Cancel anytime</span>
+            </label>
+          {%- endif -%}
+
+          {%- if triple_variant -%}
+          <label class="plan-card plan-card--best" data-price="{{ triple_per_tub }}" data-oldprice="{{ variant_price }}" data-qty="1" data-variant="{{ triple_variant.id }}" data-selling-plan="">
+            <input type="radio" name="pdp-plan" checked />
+            <span class="plan-card__ribbon">⭐ BEST VALUE</span>
+            <div class="plan-card__main">
+              <div class="plan-card__left">
+                <span class="plan-card__title">Buy 2, Get 1 FREE</span>
+                <span class="plan-card__detail">3 Tubs · One-Time Purchase</span>
+              </div>
+              <div class="plan-card__right">
+                <span class="plan-card__price"><s>{{ variant_price | money }}</s>{{ triple_per_tub | money }}<small>/tub</small></span>
+                <span class="plan-card__off plan-card__off--gold">{{ triple_pct_off }}% OFF</span>
+              </div>
+            </div>
+            <span class="plan-card__save">Save {{ triple_pct_off }}% — the membership's biggest saving</span>
+          </label>
+          {%- endif -%}
+
+          <label class="plan-card" data-price="{{ variant_price }}" data-oldprice="" data-qty="1" data-variant="{{ current_variant.id }}" data-selling-plan="">
+            <input type="radio" name="pdp-plan" />
+            <div class="plan-card__main">
+              <div class="plan-card__left">
+                <span class="plan-card__title">One-Time Purchase</span>
+                <span class="plan-card__detail">No commitment</span>
+              </div>
+              <div class="plan-card__right">
+                <span class="plan-card__price">{{ variant_price | money }}</span>
+              </div>
+            </div>
+            <span class="plan-card__meta">No membership perks included</span>
+          </label>
+        </div>
+
+        <div class="pdp-gifts">
+          <span class="pdp-gifts__label">FREE WITH YOUR MEMBERSHIP <em>Worth £160</em></span>
+          <div class="gift-grid">
+            <div class="gift-chip"><img src="https://cdn.shopify.com/s/files/1/1021/6305/4979/files/ritual-mask-light.png?v=1784648102" alt="Silk Sleep Mask" /><span>Silk Sleep Mask</span></div>
+            <div class="gift-chip"><img src="https://cdn.shopify.com/s/files/1/1021/6305/4979/files/ritual-pillow-spray.png?v=1784648102" alt="MoonMist Pillow Spray" /><span>Pillow Spray</span></div>
+            <div class="gift-chip"><span class="gift-chip__icon">📖</span><span>Sleep Guide Booklet</span></div>
+            <div class="gift-chip"><span class="gift-chip__icon">🎧</span><span>Sleep Playlist</span></div>
+          </div>
+        </div>
+
+        <form method="post" action="/cart/add" id="pdpForm" class="pdp-form">
+          <input type="hidden" name="id" id="pdpVariantId" value="{{ triple_variant.id | default: current_variant.id | default: 58243240329603 }}" />
+          <input type="hidden" name="selling_plan" id="pdpSellingPlan" value="" />
+          <input type="hidden" name="quantity" id="pdpQuantity" value="1" />
+          <button type="submit" class="btn btn--primary btn--xl pdp-cta" id="pdpCta">TRY RISK FREE • <span id="pdpCtaPrice">{{ triple_per_tub | money }}</span></button>
+        </form>
+
+        <div class="pdp-assure">
+          <span>🚚 Free UK Shipping</span>
+          <span>🛡️ 30-Day Money Back Guarantee</span>
+          <span>🔒 Secure Checkout</span>
+        </div>
+
+        <div class="pdp-pay" aria-label="Accepted payment methods">
+          <span class="pay-badge pay-badge--applepay">Apple Pay</span>
+          <span class="pay-badge pay-badge--googlepay">Google Pay</span>
+          <span class="pay-badge pay-badge--visa">Visa</span>
+          <span class="pay-badge pay-badge--mastercard">Mastercard</span>
+          <span class="pay-badge pay-badge--paypal">PayPal</span>
+          <span class="pay-badge pay-badge--shoppay">Shop Pay</span>
+        </div>
+
+        <p class="pdp-live">🔥 <strong><span id="pdpViewerCount">37</span> people</strong> are viewing this right now</p>
+        <p class="pdp-stock">⚡ Only <strong id="pdpStockCount">14</strong> left in stock at this price</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INGREDIENTS -->
+  <section class="pdp-ingredients section" id="ingredients">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What's Inside</span>
+        <h2>9 Sleep-Backed Ingredients <em>Found In Nature</em></h2>
+        <p>Full supplement facts per 2-gummy serving — clinically dosed, not trace amounts for label appeal.</p>
+      </div>
+      <div class="ingredient-grid">
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">🔩</div>
+          <div class="ingredient-card__body">
+            <h4>Magnesium Glycinate</h4>
+            <span class="ingredient-card__dose">150mg</span>
+            <p>Calms the nervous system and supports deep, restorative sleep.</p>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">🍵</div>
+          <div class="ingredient-card__body">
+            <h4>L-Theanine</h4>
+            <span class="ingredient-card__dose">200mg</span>
+            <p>Promotes relaxation without sedation — quiets racing thoughts.</p>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">🌙</div>
+          <div class="ingredient-card__body">
+            <h4>Glycine</h4>
+            <span class="ingredient-card__dose">500mg</span>
+            <p>Supports the body's natural transition into deeper sleep.</p>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">🌿</div>
+          <div class="ingredient-card__body">
+            <h4>KSM-66&reg; Ashwagandha</h4>
+            <span class="ingredient-card__dose">150mg</span>
+            <p>An ancient adaptogen that helps your body fully unwind.</p>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">🍋</div>
+          <div class="ingredient-card__body">
+            <h4>Lemon Balm</h4>
+            <span class="ingredient-card__dose">150mg</span>
+            <p>A calming herb traditionally used to ease restlessness before bed.</p>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">💜</div>
+          <div class="ingredient-card__body">
+            <h4>Passionflower</h4>
+            <span class="ingredient-card__dose">150mg</span>
+            <p>Clinically shown to increase GABA, reducing anxiety before sleep.</p>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">🌼</div>
+          <div class="ingredient-card__body">
+            <h4>Chamomile</h4>
+            <span class="ingredient-card__dose">120mg</span>
+            <p>A centuries-old remedy that promotes calmness and rest.</p>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">🌾</div>
+          <div class="ingredient-card__body">
+            <h4>Valerian Root</h4>
+            <span class="ingredient-card__dose">100mg</span>
+            <p>A traditional herbal remedy for deeper, more restful sleep.</p>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">✦</div>
+          <div class="ingredient-card__body">
+            <h4>Vitamin B6</h4>
+            <span class="ingredient-card__dose">1.4mg</span>
+            <p>Supports normal nervous system function and hormonal regulation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALITY YOU CAN TRUST -->
+  <section class="trust-badges trust-badges--light section">
+    <div class="wave-divider wave-divider--top wave-divider--light" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path class="wave-divider__soft" d="M0,60 C90,15 150,15 240,60 C330,105 390,105 480,60 C570,15 630,15 720,60 C810,105 870,105 960,60 C1050,15 1110,15 1200,60 C1290,105 1350,105 1440,60 L1440,120 L0,120 Z"></path>
+        <path class="wave-divider__fill" d="M0,75 C90,35 150,35 240,75 C330,115 390,115 480,75 C570,35 630,35 720,75 C810,115 870,115 960,75 C1050,35 1110,35 1200,75 C1290,115 1350,115 1440,75 L1440,120 L0,120 Z"></path>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Quality You Can Trust</span>
+        <h2>Made Properly, <em>Tested Thoroughly</em></h2>
+      </div>
+      <div class="trust-badges__grid">
+        <div class="trust-badge"><span class="trust-badge__icon">🇬🇧</span><div><strong>Made in UK</strong><span>Manufactured to GMP standards</span></div></div>
+        <div class="trust-badge"><span class="trust-badge__icon">🧪</span><div><strong>Third-Party Tested</strong><span>Every batch verified</span></div></div>
+        <div class="trust-badge"><span class="trust-badge__icon">🌿</span><div><strong>Vegan &amp; Non-GMO</strong><span>No artificial fillers</span></div></div>
+        <div class="trust-badge"><span class="trust-badge__icon">🚫</span><div><strong>Gluten-Free</strong><span>0g added sugar</span></div></div>
+        <div class="trust-badge"><span class="trust-badge__icon">😴</span><div><strong>Melatonin-Free</strong><span>No morning grogginess</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS TIMELINE -->
+  <section class="timeline section" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Your Sleep Journey</span>
+        <h2>Real Results, <em>Night by Night</em></h2>
+        <p>Here's what MoonBites customers experience when they start their sleep ritual.</p>
+      </div>
+      <div class="timeline__track">
+        <div class="tl-step reveal">
+          <div class="tl-step__node"><span>🌙</span></div>
+          <div class="tl-step__body">
+            <h4>Night 1</h4>
+            <p>You feel noticeably calmer at bedtime. Your mind quiets faster and you drift off more naturally.</p>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-step__node"><span>🌛</span></div>
+          <div class="tl-step__body">
+            <h4>Week 1</h4>
+            <p>Falling asleep takes less time. You stop waking in the middle of the night as frequently.</p>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-step__node"><span>⭐</span></div>
+          <div class="tl-step__body">
+            <h4>Week 2</h4>
+            <p>Sleep feels deeper and more restorative. Friends notice you seem more rested and energised.</p>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-step__node"><span>☀️</span></div>
+          <div class="tl-step__body">
+            <h4>Month 1</h4>
+            <p>Your sleep schedule is consistent. You wake up energised — better mood, sharper focus all day.</p>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-step__node"><span>✨</span></div>
+          <div class="tl-step__body">
+            <h4>Month 3+</h4>
+            <p>Sustained deep sleep is your new normal. You're sleeping better than you have in years.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="pdp-reviews section" id="reviews">
+    <div class="wave-divider wave-divider--top wave-divider--dark" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path class="wave-divider__soft" d="M0,60 C90,15 150,15 240,60 C330,105 390,105 480,60 C570,15 630,15 720,60 C810,105 870,105 960,60 C1050,15 1110,15 1200,60 C1290,105 1350,105 1440,60 L1440,120 L0,120 Z"></path>
+        <path class="wave-divider__fill" d="M0,75 C90,35 150,35 240,75 C330,115 390,115 480,75 C570,35 630,35 720,75 C810,115 870,115 960,75 C1050,35 1110,35 1200,75 C1290,115 1350,115 1440,75 L1440,120 L0,120 Z"></path>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Customer Love</span>
+        <h2>Real People, <em>Real Results</em></h2>
+        <div class="reviews__overall">
+          <span>⭐⭐⭐⭐⭐</span>
+          <strong>4.9 out of 5</strong>
+          <span>· 3,200+ reviews</span>
+        </div>
+      </div>
+      <div class="pdp-review-grid">
+        <div class="review-card">
+          <div class="review-card__top">
+            <span class="review-card__stars">⭐⭐⭐⭐⭐</span>
+            <span class="review-card__verified">✓ Verified Purchase</span>
+          </div>
+          <p>"I've tried every sleep supplement out there. MoonBites are the only ones that actually work without leaving me groggy."</p>
+          <div class="review-card__author">
+            <div class="review-avatar">S</div>
+            <div><strong>Sarah M.</strong><span>Austin, TX</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-card__top">
+            <span class="review-card__stars">⭐⭐⭐⭐⭐</span>
+            <span class="review-card__verified">✓ Verified Purchase</span>
+          </div>
+          <p>"Game changer. I used to wake up 3–4 times a night. After two weeks I'm sleeping straight through."</p>
+          <div class="review-card__author">
+            <div class="review-avatar">J</div>
+            <div><strong>James R.</strong><span>Chicago, IL</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-card__top">
+            <span class="review-card__stars">⭐⭐⭐⭐⭐</span>
+            <span class="review-card__verified">✓ Verified Member</span>
+          </div>
+          <p>"The freebies alone are worth it. The silk sleep mask is genuinely gorgeous and part of my nightly routine now."</p>
+          <div class="review-card__author">
+            <div class="review-avatar">P</div>
+            <div><strong>Priya K.</strong><span>Bristol, UK</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="how section">
+    <div class="wave-divider wave-divider--top wave-divider--light" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path class="wave-divider__soft" d="M0,60 C90,15 150,15 240,60 C330,105 390,105 480,60 C570,15 630,15 720,60 C810,105 870,105 960,60 C1050,15 1110,15 1200,60 C1290,105 1350,105 1440,60 L1440,120 L0,120 Z"></path>
+        <path class="wave-divider__fill" d="M0,75 C90,35 150,35 240,75 C330,115 390,115 480,75 C570,35 630,35 720,75 C810,115 870,115 960,75 C1050,35 1110,35 1200,75 C1290,115 1350,115 1440,75 L1440,120 L0,120 Z"></path>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Simple Nightly Ritual</span>
+        <h2>How To <em>Use</em></h2>
+        <p>Three steps between you and genuinely restful sleep.</p>
+      </div>
+      <div class="how__visual reveal">
+        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_30R3eXL6BPUSKw0spLsPfz6tg4K/a38cc3f5-971a-4073-9d1a-3139f527b8f5.png" alt="Winding down by the fire with MoonBites Sleep Gummies" class="how__img" />
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step__num">01</span>
+          <h4>Take 2 Gummies</h4>
+          <p>30–45 minutes before bed, with or without food.</p>
+        </div>
+        <span class="step__arrow">→</span>
+        <div class="step">
+          <span class="step__num">02</span>
+          <h4>Wind Down</h4>
+          <p>Magnesium and L-Theanine begin calming your nervous system.</p>
+        </div>
+        <span class="step__arrow">→</span>
+        <div class="step">
+          <span class="step__num">03</span>
+          <h4>Wake Restored</h4>
+          <p>No melatonin means no grogginess — just genuine, deep rest.</p>
+        </div>
+      </div>
+    </div>
+    <div class="wave-divider wave-divider--bottom wave-divider--dark" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path class="wave-divider__soft" d="M0,60 C90,15 150,15 240,60 C330,105 390,105 480,60 C570,15 630,15 720,60 C810,105 870,105 960,60 C1050,15 1110,15 1200,60 C1290,105 1350,105 1440,60 L1440,120 L0,120 Z"></path>
+        <path class="wave-divider__fill" d="M0,75 C90,35 150,35 240,75 C330,115 390,115 480,75 C570,35 630,35 720,75 C810,115 870,115 960,75 C1050,35 1110,35 1200,75 C1290,115 1350,115 1440,75 L1440,120 L0,120 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- COMPLETE YOUR RITUAL (CROSS-SELL) -->
+  {%- liquid
+    assign hamper_product = all_products['moonbites-members-hamper-bundle']
+  -%}
+  {%- if triple_product or hamper_product -%}
+  <section class="pdp-crosssell section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Frequently Bought Together</span>
+        <h2>Complete Your <em>Sleep Ritual</em></h2>
+        <p>Members who buy the Sleep Gummies often add these too.</p>
+      </div>
+      <div class="crosssell-grid">
+        {%- if triple_product -%}
+        <a href="{{ triple_product.url }}" class="crosssell-card">
+          <div class="crosssell-card__img">
+            <img src="{{ triple_product.featured_image | image_url: width: 400 }}" alt="{{ triple_product.title | escape }}" loading="lazy" />
+          </div>
+          <div class="crosssell-card__body">
+            <h4>{{ triple_product.title }}</h4>
+            <p>Never run out — 3 months, biggest saving.</p>
+            <span class="crosssell-card__price">{{ triple_product.price | money }}</span>
+          </div>
+        </a>
+        {%- endif -%}
+        {%- if hamper_product -%}
+        <a href="{{ hamper_product.url }}" class="crosssell-card">
+          <div class="crosssell-card__img">
+            <img src="{{ hamper_product.featured_image | image_url: width: 400 }}" alt="{{ hamper_product.title | escape }}" loading="lazy" />
+          </div>
+          <div class="crosssell-card__body">
+            <h4>{{ hamper_product.title }}</h4>
+            <p>The complete gift-ready sleep ritual bundle.</p>
+            <span class="crosssell-card__price">{{ hamper_product.price | money }}</span>
+          </div>
+        </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  <!-- ONE-TIME VS MEMBERSHIP COMPARISON -->
+  <section class="section" style="background: radial-gradient(ellipse at 50% -10%, rgba(42,46,138,0.28), transparent 60%), rgba(8,12,34,0.82);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Compare Your Options</span>
+        <h2>Why Members <em>Save More</em></h2>
+      </div>
+      <div class="price-compare">
+        <div class="price-card reveal">
+          <h4>Buy Once</h4>
+          <div class="price-card__amount">{{ variant_price | money }}</div>
+          <ul>
+            <li>✓ One tub</li>
+            <li class="price-card__no">✗ No gifts</li>
+            <li class="price-card__no">✗ No premium content</li>
+            <li class="price-card__no">✗ No member perks</li>
+          </ul>
+          <button type="button" class="btn btn--ghost" data-plan-select="one-time">Buy Once</button>
+        </div>
+        <div class="price-card price-card--featured reveal">
+          <span class="price-card__ribbon">⭐ Most Popular</span>
+          <h4>MoonBites Membership</h4>
+          <div class="price-card__amount">{{ sub_price | money }}<small>Usually {{ variant_price | money }}</small></div>
+          {%- assign sub_pct_off = variant_price | minus: sub_price | times: 100.0 | divided_by: variant_price | round -%}
+          <span class="price-card__save">Save {{ sub_pct_off }}% — or {{ triple_pct_off }}% with the 3-tub bundle</span>
+          <ul>
+            <li>✓ FREE Silk Sleep Mask</li>
+            <li>✓ FREE MoonMist Pillow Spray</li>
+            <li>✓ FREE Premium Sleep Audio Library</li>
+            <li>✓ Free UK Delivery</li>
+            <li>✓ Cancel Anytime</li>
+          </ul>
+          <button type="button" class="btn btn--primary btn--lg price-card__cta" data-plan-select="subscribe">Join Membership</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq section" id="pdp-faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2>Questions? <em>We Have Answers</em></h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <button class="faq__q">Will I feel groggy in the morning? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>MoonBites are melatonin-free, so there's no melatonin "sleep hangover" to sleep off. Magnesium and Ashwagandha calm your nervous system rather than sedating you, so nothing lingers into the morning.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">How long until I see results? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>Most people notice a difference from night one — feeling calmer and falling asleep faster. For full benefits like deeper sleep and consistent schedules, give it 2–4 weeks of nightly use.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Are MoonBites habit-forming? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>No. MoonBites contain zero melatonin, so there's no risk of your body's own production adjusting to nightly use. You can stop anytime with no withdrawal.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">What if it doesn't work for me? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>You're covered by our 30-night money-back guarantee — if you're not sleeping better, contact us for a full refund. No forms, no hassle.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Are they vegan and allergen-free? <span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>Yes — 100% vegan, non-GMO, gluten-free, with no artificial colours or flavours. Made in a GMP-certified UK facility and third-party tested every batch.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will I feel groggy in the morning?",
+        "acceptedAnswer": { "@type": "Answer", "text": "MoonBites are melatonin-free, so there's no melatonin \"sleep hangover\" to sleep off. Magnesium and Ashwagandha calm your nervous system rather than sedating you, so nothing lingers into the morning." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long until I see results?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most people notice a difference from night one — feeling calmer and falling asleep faster. For full benefits like deeper sleep and consistent schedules, give it 2-4 weeks of nightly use." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are MoonBites habit-forming?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. MoonBites contain zero melatonin, so there's no risk of your body's own production adjusting to nightly use. You can stop anytime with no withdrawal." }
+      },
+      {
+        "@type": "Question",
+        "name": "What if it doesn't work for me?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You're covered by our 30-night money-back guarantee — if you're not sleeping better, contact us for a full refund. No forms, no hassle." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are they vegan and allergen-free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — 100% vegan, non-GMO, gluten-free, with no artificial colours or flavours. Made in a GMP-certified UK facility and third-party tested every batch." }
+      }
+    ]
+  }
+  </script>
+
+  {%- if current_variant -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": {{ product.title | default: "MoonBites Sleep Gummies" | json }},
+    "description": {{ product.description | strip_html | truncatewords: 50 | json }},
+    "image": [{{ hero_image | image_url: width: 1200 | json }}],
+    "sku": {{ current_variant.sku | json }},
+    "brand": { "@type": "Brand", "name": "MoonBites" },
+    "offers": {
+      "@type": "Offer",
+      "url": {{ canonical_url | json }},
+      "priceCurrency": "GBP",
+      "price": {{ current_variant.price | money_without_currency | json }},
+      "availability": "{% if current_variant.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}"
+    }
+  }
+  </script>
+  {%- endif -%}
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter section">
+    <div class="container">
+      <div class="newsletter__inner">
+        <div class="newsletter__text">
+          <span class="section-tag">Join the Community</span>
+          <h2>Get Sleep Tips &amp; <em>Exclusive Deals</em></h2>
+          <p>Join 23,000+ dreamers. Weekly sleep science, product updates, and subscriber-only discounts. No spam, ever.</p>
+        </div>
+        <div class="newsletter__form-wrap">
+          <form class="newsletter__form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn--primary">Subscribe Free</button>
+          </form>
+          <p class="newsletter__note" id="newsletterNote">🔒 No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY BUY BAR -->
+  <div class="sticky-mobile" id="stickyMobile">
+    <div class="sticky-bar__inner">
+      <span class="sticky-bar__brand">🌙 MoonBites</span>
+      <span class="sticky-bar__stars">★★★★★</span>
+      <span class="sticky-bar__price" id="pdpStickyPrice">{{ triple_per_tub | money }}<small>per tub</small></span>
+      <button type="button" class="btn btn--primary sticky-bar__cta" id="pdpStickyCta">Try Risk Free</button>
+    </div>
+  </div>
+
+  {% schema %}
+{
+  "name": "MoonBites Product",
+  "settings": []
+}
+{% endschema %}
