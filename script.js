@@ -35,6 +35,9 @@ const mobileMenu = document.getElementById('mobileMenu');
 if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  mobileMenu.querySelectorAll('.nav__mobile-toggle').forEach(btn => {
+    btn.addEventListener('click', () => btn.parentElement.classList.toggle('nav__mobile-group--open'));
+  });
 }
 
 // ── STAR FIELD (ENHANCED) ──

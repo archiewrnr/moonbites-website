@@ -29,12 +29,22 @@
     <div class="nav__inner">
       <a href="#" class="nav__logo"><img src="https://cdn.shopify.com/s/files/1/1021/6305/4979/files/moonbites-logo-lockup.png?v=1785410249" alt="MoonBites" class="nav__logo-icon" /></a>
       <ul class="nav__links">
-        <li><a href="#membership">Membership</a></li>
-        <li><a href="#showcase">What's Included</a></li>
-        <li><a href="#moon-lounge">Moon Lounge</a></li>
-        <li><a href="#ingredients">Ingredients</a></li>
-        <li><a href="#reviews">Members</a></li>
-        <li><a href="blog.html">Journal</a></li>
+        <li><a href="#">Home</a></li>
+        <li class="nav__dropdown">
+          <a href="#products" class="nav__dropdown-toggle">Shop</a>
+          <ul class="nav__submenu">
+            <li><a href="#products">Moonbites</a></li>
+            <li><a href="#ingredients">Ingredients</a></li>
+          </ul>
+        </li>
+        <li class="nav__dropdown">
+          <a href="#moon-lounge" class="nav__dropdown-toggle">Moon Lounge</a>
+          <ul class="nav__submenu">
+            <li><a href="#membership">MoonMembers</a></li>
+            <li><a href="#reviews">Members</a></li>
+            <li><a href="blog.html">Journal</a></li>
+          </ul>
+        </li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
       <div class="nav__actions">
@@ -46,12 +56,22 @@
       </button>
     </div>
     <div class="nav__mobile" id="mobileMenu">
-      <a href="#membership">Membership</a>
-      <a href="#showcase">What's Included</a>
-      <a href="#moon-lounge">Moon Lounge</a>
-      <a href="#ingredients">Ingredients</a>
-      <a href="#reviews">Members</a>
-      <a href="blog.html">Journal</a>
+      <a href="#">Home</a>
+      <div class="nav__mobile-group">
+        <button class="nav__mobile-toggle" type="button">Shop <span class="nav__mobile-chevron">▾</span></button>
+        <div class="nav__mobile-submenu">
+          <a href="#products">Moonbites</a>
+          <a href="#ingredients">Ingredients</a>
+        </div>
+      </div>
+      <div class="nav__mobile-group">
+        <button class="nav__mobile-toggle" type="button">Moon Lounge <span class="nav__mobile-chevron">▾</span></button>
+        <div class="nav__mobile-submenu">
+          <a href="#membership">MoonMembers</a>
+          <a href="#reviews">Members</a>
+          <a href="blog.html">Journal</a>
+        </div>
+      </div>
       <a href="#faq">FAQ</a>
       <a href="#membership" class="btn btn--primary">Become a Member</a>
     </div>

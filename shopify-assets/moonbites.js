@@ -35,6 +35,9 @@ const mobileMenu = document.getElementById('mobileMenu');
 if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  mobileMenu.querySelectorAll('.nav__mobile-toggle').forEach(btn => {
+    btn.addEventListener('click', () => btn.parentElement.classList.toggle('nav__mobile-group--open'));
+  });
 }
 
 // ── STAR FIELD (ENHANCED) ──
@@ -289,7 +292,7 @@ const SHOPIFY_CART_LINKS = {
   const cta = document.getElementById('purchaseCta');
   if (!grid || !cta) return;
   const cards = grid.querySelectorAll('.plan-card');
-  const ctaPriceByPlan = { single: 'TRY RISK FREE • £19.99', triple: 'TRY RISK FREE • £13.99', 'single-onetime': 'BUY NOW • £23.99' };
+  const ctaPriceByPlan = { single: 'TRY RISK FREE • £23.99', triple: 'TRY RISK FREE • £17.99', 'single-onetime': 'BUY NOW • £29.99' };
   let selectedPlan = 'triple';
 
   cards.forEach(card => {
@@ -403,26 +406,6 @@ document.querySelectorAll('.ritual-card__swatches').forEach(group => {
     });
   });
 });
-
-// ── PDP GALLERY THUMBNAIL SWAP ──
-(function () {
-  const mainImg = document.getElementById('pdpMainImage');
-  const thumbs = document.querySelectorAll('.pdp-gallery__thumb');
-  if (!mainImg || !thumbs.length) return;
-  thumbs.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const full = thumb.dataset.full;
-      if (!full || full === mainImg.src) return;
-      mainImg.style.opacity = '0';
-      setTimeout(() => {
-        mainImg.src = full;
-        mainImg.style.opacity = '1';
-      }, 120);
-      thumbs.forEach(t => t.classList.remove('is-active'));
-      thumb.classList.add('is-active');
-    });
-  });
-})();
 
 // ── REVIEWS CAROUSEL ──
 const track = document.getElementById('reviewTrack');
@@ -621,109 +604,3 @@ if (referralBtn) {
     });
   });
 })();
-
-// ── CART PAGE ──
-(function () {
-  const section = document.getElementById('moonbitesCartSection');
-  if (!section) return;
-
-  const sectionId = section.dataset.sectionId;
-
-  async function changeLine(line, quantity) {
-    try {
-      await fetch('/cart/change.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ line: line, quantity })
-      });
-      await refresh();
-      updateCartCount();
-    } catch (err) {
-      await refresh();
-    }
-  }
-
-  async function addVariant(variantId, btn) {
-    if (!variantId) return;
-    const orig = btn.textContent;
-    btn.textContent = '…';
-    btn.disabled = true;
-    try {
-      await fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: variantId, quantity: 1 })
-      });
-      await refresh();
-      updateCartCount();
-    } catch (err) {
-      btn.textContent = orig;
-      btn.disabled = false;
-    }
-  }
-
-  async function refresh() {
-    const url = `${window.location.pathname}?section_id=${sectionId}`;
-    const res = await fetch(url);
-    const html = await res.text();
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    const fresh = doc.getElementById('moonbitesCartSection');
-    const current = document.getElementById('moonbitesCartSection');
-    if (fresh && current) {
-      current.replaceWith(fresh);
-      bind();
-      initCartDeliveryEstimate();
-    }
-  }
-
-  function bind() {
-    const root = document.getElementById('moonbitesCartSection');
-    if (!root) return;
-
-    root.querySelectorAll('.qty-pill').forEach(pill => {
-      const line = parseInt(pill.dataset.line, 10);
-      const minus = pill.querySelector('.qty-pill__btn--minus');
-      const plus = pill.querySelector('.qty-pill__btn--plus');
-      const num = pill.querySelector('.qty-pill__num');
-
-      minus.addEventListener('click', () => {
-        const qty = parseInt(num.textContent, 10);
-        if (qty <= 1) return;
-        pill.closest('.cart-item').classList.add('cart-item--updating');
-        changeLine(line, qty - 1);
-      });
-      plus.addEventListener('click', () => {
-        const qty = parseInt(num.textContent, 10);
-        pill.closest('.cart-item').classList.add('cart-item--updating');
-        changeLine(line, qty + 1);
-      });
-    });
-
-    root.querySelectorAll('.cart-item__remove').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.cart-item');
-        if (item) item.classList.add('cart-item--removing');
-        setTimeout(() => changeLine(parseInt(btn.dataset.line, 10), 0), 200);
-      });
-    });
-
-    root.querySelectorAll('.cart-crosssell-card__add').forEach(btn => {
-      btn.addEventListener('click', () => addVariant(btn.dataset.variantId, btn));
-    });
-  }
-
-  bind();
-})();
-
-// ── CART DELIVERY ESTIMATE ──
-function initCartDeliveryEstimate() {
-  const el = document.getElementById('cartDeliveryEstimate');
-  if (!el) return;
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const start = new Date();
-  start.setDate(start.getDate() + 2);
-  const end = new Date();
-  end.setDate(end.getDate() + 3);
-  el.textContent = `Estimated delivery: ${days[start.getDay()]}–${days[end.getDay()]}`;
-}
-initCartDeliveryEstimate();
